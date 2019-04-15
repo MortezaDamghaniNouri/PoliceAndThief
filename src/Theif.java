@@ -1,5 +1,8 @@
+import java.util.Random;
 public class Theif
 {
+    private int seed;
+    Random rand=new Random(seed);
    private int row,column;
 
    public int getRow()
@@ -14,8 +17,44 @@ public class Theif
    {
        row=r;
        column=c;
+       seed=r*c;
    }
+   public void makeDecision()
+   {
+       int random=rand.nextInt(8);
+       random+=1;
+       if(row==0&&column==0)
+       {
 
+
+
+       }
+
+       if(row==0&&column==0)
+       {
+
+
+
+       }
+       if(row==0&&column==0)
+       {
+
+
+
+       }
+       if(row==0&&column==0)
+       {
+
+
+
+       }
+
+
+
+
+
+
+   }
 
 
 

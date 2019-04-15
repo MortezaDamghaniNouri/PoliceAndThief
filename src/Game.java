@@ -23,7 +23,26 @@ public class Game
             myPolices[i]=police;
         }
         Theif myTheif=new Theif(rand.nextInt(m),rand.nextInt(n));
-        
+        int time=0;
+        for(;;++time)
+        {
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        }
+
+
 
 
 

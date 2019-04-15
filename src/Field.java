@@ -7,8 +7,14 @@ public class Field
         column=n;
 
     }
-
-
+    public int getRow()
+    {
+        return row;
+    }
+    public int getColumn()
+    {
+        return column;
+    }
 
 
 
@@ -18,3 +24,15 @@ public class Field
 
 
 }
+
+
+
+
+
+
+
+
+
+
+
+
