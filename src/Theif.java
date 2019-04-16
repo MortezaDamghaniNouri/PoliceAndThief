@@ -21,30 +21,33 @@ public class Theif
    }
    public void makeDecision()
    {
-       int random=rand.nextInt(8);
-       random+=1;
+
+
        if(row==0&&column==0)
        {
-
-
+           int random=rand.nextInt(3);
+           random+=1;
 
        }
 
        if(row==0&&column==0)
        {
-
-
-
-       }
-       if(row==0&&column==0)
-       {
-
+           int random=rand.nextInt(3);
+           random+=1;
 
 
        }
        if(row==0&&column==0)
        {
+           int random=rand.nextInt(3);
+           random+=1;
 
+
+       }
+       if(row==0&&column==0)
+       {
+           int random=rand.nextInt(3);
+           random+=1;
 
 
        }
