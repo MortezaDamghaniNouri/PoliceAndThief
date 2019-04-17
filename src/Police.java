@@ -3,7 +3,9 @@ public class Police
     private int id;
     private int row;
     private int column;
-    public Police(int i,int r,int c)
+    private int totalRow;
+    private int totalColumn;
+    public Police(int i,int r,int c,int m,int n)
     {
         id=i;
         row=r;

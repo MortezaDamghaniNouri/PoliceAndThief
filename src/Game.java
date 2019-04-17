@@ -19,10 +19,10 @@ public class Game
         {
             int row=rand.nextInt(m);
             int column=rand.nextInt(n);
-            Police police=new Police(i,row,column);
+            Police police=new Police(i,row,column,m,n);
             myPolices[i]=police;
         }
-        Theif myTheif=new Theif(rand.nextInt(m),rand.nextInt(n));
+        Theif myTheif=new Theif(rand.nextInt(m),rand.nextInt(n),m,n);
         int time=0;
         for(;;++time)
         {
