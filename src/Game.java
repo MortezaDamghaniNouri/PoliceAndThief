@@ -22,7 +22,7 @@ public class Game
             Police police=new Police(i,row,column,m,n);
             myPolices[i]=police;
         }
-        Theif myTheif=new Theif(rand.nextInt(m),rand.nextInt(n),m,n);
+        Thief myTheif=new Thief(rand.nextInt(m),rand.nextInt(n),m,n);
         int time=0;
         for(;;++time)
         {
@@ -58,11 +58,3 @@ public class Game
 
 
 }
-
-
-
-
-
-
-
-

@@ -1,3 +1,4 @@
+import java.util.Random;
 public class Police
 {
     private int id;
@@ -10,6 +11,8 @@ public class Police
         id=i;
         row=r;
         column=c;
+        totalRow=m;
+        totalColumn=n;
     }
     public int getId()
     {
@@ -20,10 +23,34 @@ public class Police
     {
         return row;
     }
+    public void setRow(int r)
+    {
+        row=r;
+    }
     public int getColumn()
     {
         return column;
     }
+    public void setColumn(int c)
+    {
+        column=c;
+    }
+    public int getTotalRow()
+    {
+        return totalRow;
+    }
+    public int getTotalColumn()
+    {
+        return totalColumn;
+    }
+
+
+
+
+
+
+
+
 
 
 
