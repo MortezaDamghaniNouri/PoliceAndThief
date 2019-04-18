@@ -44,14 +44,19 @@ public class Field
         return gameTable;
 
     }
-    public int gameConditionChecker(int gameTable[][])
+    /*public int gameConditionChecker(int gameTable[][])
     {
 
 
 
-    }
+    }*/
     public void fieldPrinter(int gameTable[][])
     {
+        for(int j=1;j<=2*column;++j)
+        {
+            System.out.print("=====");
+        }
+        System.out.println();
         for(int i=0;i<row;++i)
         {
             for(int j=0;j<column;++j)
@@ -77,8 +82,52 @@ public class Field
             System.out.println();
 
         }
-
+        for(int j=1;j<=2*column;++j)
+        {
+            System.out.print("=====");
+        }
+        System.out.println();
     }
+    public void pause()
+    {
+        int m=0;
+        for(int j=0;j<=1000000000;++j)
+        {
+            for (int i = 0; i <= 1000000000; ++i)++m ;
+        }
+    }
+    public void fix()
+    {
+        for(int i=0;i<=16;++i)
+        {
+            System.out.println();
+        }
+    }
+    public void clean()
+    {
+        for(int i=0;i<=50;++i)
+        {
+            System.out.println();
+        }
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

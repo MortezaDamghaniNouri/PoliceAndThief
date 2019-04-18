@@ -1,8 +1,7 @@
 import java.util.Random;
 public class Thief
 {
-    private int seed;
-    Random rand=new Random(seed);
+    Random rand=new Random();
    private int row,column;
    private int totalRow,totalColumn;
    public int getRow()
@@ -17,7 +16,6 @@ public class Thief
    {
        row=r;
        column=c;
-       seed=r*c;
        totalRow=m;
        totalColumn=n;
    }

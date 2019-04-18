@@ -13,22 +13,33 @@ public class Game
         Field myField=new Field(m,n);
         System.out.println("Enter the number of polices.");
         numberOfPolices=input.nextInt();
-        Random rand=new Random(numberOfPolices);
-        Police myPolices[]=new Police[numberOfPolices-1];
+        Random rand1=new Random();
+        Random rand2=new Random();
+        Random rand3=new Random();
+        Random rand4=new Random(rand1.nextInt(100*m)*rand2.nextInt(100*n)*rand3.nextInt(100*numberOfPolices));
+        Police myPolices[]=new Police[numberOfPolices];
         for(int i=0;i<numberOfPolices;++i)
         {
-            int row=rand.nextInt(m);
-            int column=rand.nextInt(n);
+            int row=rand4.nextInt(m);
+            int column=rand4.nextInt(n);
             Police police=new Police(i,row,column,m,n);
             myPolices[i]=police;
         }
-        Thief myTheif=new Thief(rand.nextInt(m),rand.nextInt(n),m,n);
+        Thief myTheif=new Thief(rand4.nextInt(m),rand4.nextInt(n),m,n);
         int time=0;
-        for(;;++time)
+        myField.fix();
+
+        //myField.pause();
+        //myField.pause();
+        //myField.clean();
+
+        for(int i=1;i<=10;++i)
         {
-
-
-
+            int gameTable[][]=new int[m][n];
+            gameTable=myField.fieldMaker(myTheif,myPolices,numberOfPolices);
+            myField.fieldPrinter(gameTable);
+            myTheif.makeDecision();
+           // myField.fieldPrinter(myField.fieldMaker(myTheif,myPolices,numberOfPolices));
 
 
 
