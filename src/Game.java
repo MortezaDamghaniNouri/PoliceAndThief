@@ -1,3 +1,9 @@
+/**
+ * PROGRAMMER : MORTEZA DAMGHANI NOURI.
+ * EDUCATIONAL NUMBER :9625801.
+ * EMAIL:mortezadamghani77@gmail.com
+ */
+
 import java.util.Scanner;
 import java.util.Random;
 
