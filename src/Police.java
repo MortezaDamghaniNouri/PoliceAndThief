@@ -15,7 +15,24 @@ public class Police
         column=c;
         totalRow=m;
         totalColumn=n;
+        thiefRow=100000;
+        thiefColumn=100000;
     }
+    public void randomSiteGenerator()
+    {
+        Random rand=new Random();
+        setRow(rand.nextInt(totalRow));
+        setColumn(rand.nextInt(totalColumn));
+    }
+    public int getThiefRow()
+    {
+        return thiefRow;
+    }
+    public int getThiefColumn()
+    {
+        return thiefColumn;
+    }
+
     public void setThiefRow(int r)
     {
         thiefRow=r;
@@ -70,9 +87,71 @@ public class Police
 
     public void makeDecision(Police p)
     {
+        if(p.getThiefRow()==100000&&p.getThiefColumn()==100000)
+        {
+            p.randomSiteGenerator();
+        }
+        else
+        {
+            int thiefRow=p.getThiefRow();
+            int thiefColumn=p.getThiefColumn();
+            int result=0;
+            if(thiefRow==p.getRow())
+            {
+                result=1;
+                if(thiefColumn>p.getColumn())
+                {
+                    p.setColumn(p.getColumn()+1);
+                }
+                else
+                {
+                 p.setColumn(p.getColumn()-1);
+                }
+
+            }
+            if(thiefColumn==p.getColumn())
+            {
+                result=1;
+                if(thiefRow>p.getRow())
+                {
+                    p.setRow(p.getRow()+1);
+                }
+                else
+                {
+                    p.setRow(p.getRow()-1);
+                }
+
+            }
+            if(result==0)
+            {
+                if(thiefRow<p.getRow()&&thiefColumn>p.getColumn())
+                {
+                    p.setRow(p.getRow()-1);
+                    p.setColumn(p.getColumn()+1);
+                }
+                if(thiefRow<p.getRow()&&thiefColumn<p.getColumn())
+                {
+                    p.setRow(p.getRow()-1);
+                    p.setColumn(p.getColumn()-1);
+                }
+                if(thiefRow>p.getRow()&&thiefColumn>p.getColumn())
+                {
+                    p.setRow(p.getRow()+1);
+                    p.setColumn(p.getColumn()+1);
+                }
+                if(thiefRow>p.getRow()&&thiefColumn<p.getColumn())
+                {
+                    p.setRow(p.getRow()+1);
+                    p.setColumn(p.getColumn()-1);
+                }
+
+            }
 
 
 
+
+
+        }
 
     }
     public void haveYouSeen(Police p[],int[][] gameTable,int n)

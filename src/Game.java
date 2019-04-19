@@ -35,7 +35,7 @@ public class Game
 
         for(int i=1;i<=10;++i)
         {
-            int gameTable[][]=new int[m][n];
+            int gameTable[][];
             gameTable=myField.fieldMaker(myTheif,myPolices,numberOfPolices);
             myField.fieldPrinter(gameTable);
             myTheif.makeDecision();
