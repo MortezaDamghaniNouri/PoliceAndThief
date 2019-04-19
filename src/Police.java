@@ -1,5 +1,4 @@
 import java.util.Random;
-
 public class Police {
     private int id;
     private int row;
@@ -148,1385 +147,1603 @@ public class Police {
 
     }
 
-    public void haveYouSeen(Police p[], int[][] gameTable, int n) {
+    public static void haveYouSeen(Police p[], int[][] gameTable, int n) {
         Police police;
         int thiefRow;
         int thiefColumn;
-        for (int i = 0; i < n; ++i) {
-            int result = 0;
-            police = p[i];
-            int row = police.getRow();
-            int column = police.getColumn();
-            if (row == 0 && column == 0) {
-                result = 1;
-                if (gameTable[row][column + 1] == 1) {
-                    thiefRow = row;
-                    thiefColumn = column + 1;
-                    police.iSawThief(thiefRow, thiefColumn, p, n);
-                    break;
+        if (p[0].getTotalRow() > 6 && p[0].getTotalColumn() > 6) {
+            for (int i = 0; i < n; ++i) {
+                int result = 0;
+                police = p[i];
+                int row = police.getRow();
+                int column = police.getColumn();
+                if (row == 0 && column == 0) {
+                    result = 1;
+                    if (gameTable[row][column + 1] == 1) {
+                        thiefRow = row;
+                        thiefColumn = column + 1;
+                        police.iSawThief(thiefRow, thiefColumn, p, n);
+                        break;
+
+                    }
+                    if (gameTable[row][column + 2] == 1) {
+                        thiefRow = row;
+                        thiefColumn = column + 2;
+                        police.iSawThief(thiefRow, thiefColumn, p, n);
+                        break;
+                    }
+                    if (gameTable[row + 1][column + 1] == 1) {
+                        thiefRow = row + 1;
+                        thiefColumn = column + 1;
+                        police.iSawThief(thiefRow, thiefColumn, p, n);
+                        break;
+                    }
+                    if (gameTable[row + 2][column + 2] == 1) {
+                        thiefRow = row + 2;
+                        thiefColumn = column + 2;
+                        police.iSawThief(thiefRow, thiefColumn, p, n);
+                        break;
+                    }
+                    if (gameTable[row + 1][column] == 1) {
+                        thiefRow = row + 1;
+                        thiefColumn = column;
+                        police.iSawThief(thiefRow, thiefColumn, p, n);
+                        break;
+                    }
+                    if (gameTable[row + 2][column] == 1) {
+                        thiefRow = row + 2;
+                        thiefColumn = column;
+                        police.iSawThief(thiefRow, thiefColumn, p, n);
+                        break;
+                    }
 
                 }
-                if (gameTable[row][column + 2] == 1) {
-                    thiefRow = row;
-                    thiefColumn = column + 2;
-                    police.iSawThief(thiefRow, thiefColumn, p, n);
-                    break;
+                if (row == 0 && column == police.getTotalColumn() - 1) {
+                    result = 1;
+                    if (gameTable[row][column - 1] == 1) {
+                        thiefRow = row;
+                        thiefColumn = column - 1;
+                        police.iSawThief(thiefRow, thiefColumn, p, n);
+                        break;
+
+                    }
+                    if (gameTable[row][column - 2] == 1) {
+                        thiefRow = row;
+                        thiefColumn = column - 2;
+                        police.iSawThief(thiefRow, thiefColumn, p, n);
+                        break;
+                    }
+                    if (gameTable[row + 1][column - 1] == 1) {
+                        thiefRow = row + 1;
+                        thiefColumn = column - 1;
+                        police.iSawThief(thiefRow, thiefColumn, p, n);
+                        break;
+                    }
+                    if (gameTable[row + 2][column - 2] == 1) {
+                        thiefRow = row + 2;
+                        thiefColumn = column - 2;
+                        police.iSawThief(thiefRow, thiefColumn, p, n);
+                        break;
+                    }
+                    if (gameTable[row + 1][column] == 1) {
+                        thiefRow = row + 1;
+                        thiefColumn = column;
+                        police.iSawThief(thiefRow, thiefColumn, p, n);
+                        break;
+                    }
+                    if (gameTable[row + 2][column] == 1) {
+                        thiefRow = row + 2;
+                        thiefColumn = column;
+                        police.iSawThief(thiefRow, thiefColumn, p, n);
+                        break;
+                    }
+
                 }
-                if (gameTable[row + 1][column + 1] == 1) {
-                    thiefRow = row + 1;
-                    thiefColumn = column + 1;
-                    police.iSawThief(thiefRow, thiefColumn, p, n);
-                    break;
+                if (row == police.getTotalRow() - 1 && column == police.getTotalColumn() - 1) {
+                    result = 1;
+                    if (gameTable[row][column - 1] == 1) {
+                        thiefRow = row;
+                        thiefColumn = column - 1;
+                        police.iSawThief(thiefRow, thiefColumn, p, n);
+                        break;
+
+                    }
+                    if (gameTable[row][column - 2] == 1) {
+                        thiefRow = row;
+                        thiefColumn = column - 2;
+                        police.iSawThief(thiefRow, thiefColumn, p, n);
+                        break;
+                    }
+                    if (gameTable[row - 1][column - 1] == 1) {
+                        thiefRow = row - 1;
+                        thiefColumn = column - 1;
+                        police.iSawThief(thiefRow, thiefColumn, p, n);
+                        break;
+                    }
+                    if (gameTable[row - 2][column - 2] == 1) {
+                        thiefRow = row - 2;
+                        thiefColumn = column - 2;
+                        police.iSawThief(thiefRow, thiefColumn, p, n);
+                        break;
+                    }
+                    if (gameTable[row - 1][column] == 1) {
+                        thiefRow = row - 1;
+                        thiefColumn = column;
+                        police.iSawThief(thiefRow, thiefColumn, p, n);
+                        break;
+                    }
+                    if (gameTable[row - 2][column] == 1) {
+                        thiefRow = row + 2;
+                        thiefColumn = column;
+                        police.iSawThief(thiefRow, thiefColumn, p, n);
+                        break;
+                    }
+
                 }
-                if (gameTable[row + 2][column + 2] == 1) {
-                    thiefRow = row + 2;
-                    thiefColumn = column + 2;
-                    police.iSawThief(thiefRow, thiefColumn, p, n);
-                    break;
+                if (row == police.getTotalRow() - 1 && column == 0) {
+                    result = 1;
+                    if (gameTable[row - 1][column] == 1) {
+                        thiefRow = row - 1;
+                        thiefColumn = column;
+                        police.iSawThief(thiefRow, thiefColumn, p, n);
+                        break;
+
+                    }
+                    if (gameTable[row - 2][column] == 1) {
+                        thiefRow = row - 2;
+                        thiefColumn = column;
+                        police.iSawThief(thiefRow, thiefColumn, p, n);
+                        break;
+                    }
+                    if (gameTable[row - 1][column + 1] == 1) {
+                        thiefRow = row + 1;
+                        thiefColumn = column - 1;
+                        police.iSawThief(thiefRow, thiefColumn, p, n);
+                        break;
+                    }
+                    if (gameTable[row - 2][column + 2] == 1) {
+                        thiefRow = row - 2;
+                        thiefColumn = column + 2;
+                        police.iSawThief(thiefRow, thiefColumn, p, n);
+                        break;
+                    }
+                    if (gameTable[row][column + 1] == 1) {
+                        thiefRow = row;
+                        thiefColumn = column + 1;
+                        police.iSawThief(thiefRow, thiefColumn, p, n);
+                        break;
+                    }
+                    if (gameTable[row][column + 2] == 1) {
+                        thiefRow = row;
+                        thiefColumn = column + 2;
+                        police.iSawThief(thiefRow, thiefColumn, p, n);
+                        break;
+                    }
+
                 }
-                if (gameTable[row + 1][column] == 1) {
-                    thiefRow = row + 1;
-                    thiefColumn = column;
-                    police.iSawThief(thiefRow, thiefColumn, p, n);
-                    break;
+                if (row == 0 && column == 1) {
+                    result = 1;
+                    if (gameTable[row][column - 1] == 1) {
+                        thiefRow = row;
+                        thiefColumn = column - 1;
+                        police.iSawThief(thiefRow, thiefColumn, p, n);
+                        break;
+
+                    }
+                    if (gameTable[row][column + 1] == 1) {
+                        thiefRow = row;
+                        thiefColumn = column + 1;
+                        police.iSawThief(thiefRow, thiefColumn, p, n);
+                        break;
+
+                    }
+                    if (gameTable[row][column + 2] == 1) {
+                        thiefRow = row;
+                        thiefColumn = column + 2;
+                        police.iSawThief(thiefRow, thiefColumn, p, n);
+                        break;
+                    }
+                    if (gameTable[row + 1][column - 1] == 1) {
+                        thiefRow = row + 1;
+                        thiefColumn = column - 1;
+                        police.iSawThief(thiefRow, thiefColumn, p, n);
+                        break;
+                    }
+                    if (gameTable[row + 1][column + 1] == 1) {
+                        thiefRow = row + 1;
+                        thiefColumn = column + 1;
+                        police.iSawThief(thiefRow, thiefColumn, p, n);
+                        break;
+                    }
+                    if (gameTable[row + 2][column + 2] == 1) {
+                        thiefRow = row + 2;
+                        thiefColumn = column + 2;
+                        police.iSawThief(thiefRow, thiefColumn, p, n);
+                        break;
+                    }
+                    if (gameTable[row + 1][column] == 1) {
+                        thiefRow = row + 1;
+                        thiefColumn = column;
+                        police.iSawThief(thiefRow, thiefColumn, p, n);
+                        break;
+                    }
+                    if (gameTable[row + 2][column] == 1) {
+                        thiefRow = row + 2;
+                        thiefColumn = column;
+                        police.iSawThief(thiefRow, thiefColumn, p, n);
+                        break;
+                    }
+
+
                 }
-                if (gameTable[row + 2][column] == 1) {
-                    thiefRow = row + 2;
-                    thiefColumn = column;
-                    police.iSawThief(thiefRow, thiefColumn, p, n);
-                    break;
+                if (row == 0 && column == police.getTotalColumn() - 2) {
+                    result = 1;
+                    if (gameTable[row][column + 1] == 1) {
+                        thiefRow = row;
+                        thiefColumn = column + 1;
+                        police.iSawThief(thiefRow, thiefColumn, p, n);
+                        break;
+
+                    }
+                    if (gameTable[row][column - 1] == 1) {
+                        thiefRow = row;
+                        thiefColumn = column - 1;
+                        police.iSawThief(thiefRow, thiefColumn, p, n);
+                        break;
+
+                    }
+                    if (gameTable[row][column - 2] == 1) {
+                        thiefRow = row;
+                        thiefColumn = column - 2;
+                        police.iSawThief(thiefRow, thiefColumn, p, n);
+                        break;
+                    }
+                    if (gameTable[row + 1][column + 1] == 1) {
+                        thiefRow = row + 1;
+                        thiefColumn = column + 1;
+                        police.iSawThief(thiefRow, thiefColumn, p, n);
+                        break;
+                    }
+                    if (gameTable[row + 1][column] == 1) {
+                        thiefRow = row + 1;
+                        thiefColumn = column;
+                        police.iSawThief(thiefRow, thiefColumn, p, n);
+                        break;
+                    }
+                    if (gameTable[row + 2][column] == 1) {
+                        thiefRow = row + 2;
+                        thiefColumn = column;
+                        police.iSawThief(thiefRow, thiefColumn, p, n);
+                        break;
+                    }
+                    if (gameTable[row + 1][column - 1] == 1) {
+                        thiefRow = row + 1;
+                        thiefColumn = column - 1;
+                        police.iSawThief(thiefRow, thiefColumn, p, n);
+                        break;
+                    }
+                    if (gameTable[row + 2][column - 2] == 1) {
+                        thiefRow = row + 2;
+                        thiefColumn = column - 2;
+                        police.iSawThief(thiefRow, thiefColumn, p, n);
+                        break;
+                    }
+
+
                 }
+                if (row == police.getTotalRow() - 1 && column == police.getTotalColumn() - 2) {
+                    result = 1;
+                    if (gameTable[row][column + 1] == 1) {
+                        thiefRow = row;
+                        thiefColumn = column + 1;
+                        police.iSawThief(thiefRow, thiefColumn, p, n);
+                        break;
+
+                    }
+                    if (gameTable[row][column - 1] == 1) {
+                        thiefRow = row;
+                        thiefColumn = column - 1;
+                        police.iSawThief(thiefRow, thiefColumn, p, n);
+                        break;
+
+                    }
+                    if (gameTable[row][column - 2] == 1) {
+                        thiefRow = row;
+                        thiefColumn = column - 2;
+                        police.iSawThief(thiefRow, thiefColumn, p, n);
+                        break;
+                    }
+                    if (gameTable[row - 1][column + 1] == 1) {
+                        thiefRow = row - 1;
+                        thiefColumn = column + 1;
+                        police.iSawThief(thiefRow, thiefColumn, p, n);
+                        break;
+                    }
+                    if (gameTable[row - 1][column] == 1) {
+                        thiefRow = row - 1;
+                        thiefColumn = column;
+                        police.iSawThief(thiefRow, thiefColumn, p, n);
+                        break;
+                    }
+                    if (gameTable[row - 2][column] == 1) {
+                        thiefRow = row - 2;
+                        thiefColumn = column;
+                        police.iSawThief(thiefRow, thiefColumn, p, n);
+                        break;
+                    }
+                    if (gameTable[row - 1][column - 1] == 1) {
+                        thiefRow = row - 1;
+                        thiefColumn = column - 1;
+                        police.iSawThief(thiefRow, thiefColumn, p, n);
+                        break;
+                    }
+                    if (gameTable[row - 2][column - 2] == 1) {
+                        thiefRow = row - 2;
+                        thiefColumn = column - 2;
+                        police.iSawThief(thiefRow, thiefColumn, p, n);
+                        break;
+                    }
+
+
+                }
+                if (row == police.getTotalRow() - 1 && column == 1) {
+                    result = 1;
+                    if (gameTable[row][column - 1] == 1) {
+                        thiefRow = row;
+                        thiefColumn = column - 1;
+                        police.iSawThief(thiefRow, thiefColumn, p, n);
+                        break;
+
+                    }
+                    if (gameTable[row - 1][column - 1] == 1) {
+                        thiefRow = row - 1;
+                        thiefColumn = column - 1;
+                        police.iSawThief(thiefRow, thiefColumn, p, n);
+                        break;
+
+                    }
+                    if (gameTable[row - 1][column] == 1) {
+                        thiefRow = row - 1;
+                        thiefColumn = column;
+                        police.iSawThief(thiefRow, thiefColumn, p, n);
+                        break;
+                    }
+                    if (gameTable[row - 2][column] == 1) {
+                        thiefRow = row - 2;
+                        thiefColumn = column;
+                        police.iSawThief(thiefRow, thiefColumn, p, n);
+                        break;
+                    }
+                    if (gameTable[row - 1][column + 1] == 1) {
+                        thiefRow = row - 1;
+                        thiefColumn = column + 1;
+                        police.iSawThief(thiefRow, thiefColumn, p, n);
+                        break;
+                    }
+                    if (gameTable[row - 2][column + 2] == 1) {
+                        thiefRow = row - 2;
+                        thiefColumn = column + 2;
+                        police.iSawThief(thiefRow, thiefColumn, p, n);
+                        break;
+                    }
+                    if (gameTable[row][column + 1] == 1) {
+                        thiefRow = row;
+                        thiefColumn = column + 1;
+                        police.iSawThief(thiefRow, thiefColumn, p, n);
+                        break;
+                    }
+                    if (gameTable[row][column + 2] == 1) {
+                        thiefRow = row;
+                        thiefColumn = column + 2;
+                        police.iSawThief(thiefRow, thiefColumn, p, n);
+                        break;
+                    }
+
+
+                }
+                if (row == 0 && column > 1 && column < police.getTotalColumn() - 2) {
+                    result = 1;
+                    if (gameTable[row][column - 1] == 1) {
+                        thiefRow = row;
+                        thiefColumn = column - 1;
+                        police.iSawThief(thiefRow, thiefColumn, p, n);
+                        break;
+
+                    }
+                    if (gameTable[row][column - 2] == 1) {
+                        thiefRow = row;
+                        thiefColumn = column - 2;
+                        police.iSawThief(thiefRow, thiefColumn, p, n);
+                        break;
+
+                    }
+                    if (gameTable[row + 1][column - 1] == 1) {
+                        thiefRow = row + 1;
+                        thiefColumn = column - 1;
+                        police.iSawThief(thiefRow, thiefColumn, p, n);
+                        break;
+                    }
+                    if (gameTable[row + 2][column - 2] == 1) {
+                        thiefRow = row + 2;
+                        thiefColumn = column - 2;
+                        police.iSawThief(thiefRow, thiefColumn, p, n);
+                        break;
+                    }
+                    if (gameTable[row + 1][column] == 1) {
+                        thiefRow = row + 1;
+                        thiefColumn = column;
+                        police.iSawThief(thiefRow, thiefColumn, p, n);
+                        break;
+                    }
+                    if (gameTable[row + 2][column] == 1) {
+                        thiefRow = row + 2;
+                        thiefColumn = column;
+                        police.iSawThief(thiefRow, thiefColumn, p, n);
+                        break;
+                    }
+                    if (gameTable[row + 1][column + 1] == 1) {
+                        thiefRow = row + 1;
+                        thiefColumn = column + 1;
+                        police.iSawThief(thiefRow, thiefColumn, p, n);
+                        break;
+                    }
+                    if (gameTable[row + 2][column + 2] == 1) {
+                        thiefRow = row + 2;
+                        thiefColumn = column + 2;
+                        police.iSawThief(thiefRow, thiefColumn, p, n);
+                        break;
+                    }
+                    if (gameTable[row][column + 1] == 1) {
+                        thiefRow = row;
+                        thiefColumn = column + 1;
+                        police.iSawThief(thiefRow, thiefColumn, p, n);
+                        break;
+                    }
+                    if (gameTable[row][column + 2] == 1) {
+                        thiefRow = row;
+                        thiefColumn = column + 2;
+                        police.iSawThief(thiefRow, thiefColumn, p, n);
+                        break;
+                    }
+
+                }
+                if (column == 0 && row > 1 && row < police.getTotalRow() - 2) {
+                    result = 1;
+                    if (gameTable[row - 1][column] == 1) {
+                        thiefRow = row - 1;
+                        thiefColumn = column;
+                        police.iSawThief(thiefRow, thiefColumn, p, n);
+                        break;
+
+                    }
+                    if (gameTable[row - 2][column] == 1) {
+                        thiefRow = row - 2;
+                        thiefColumn = column;
+                        police.iSawThief(thiefRow, thiefColumn, p, n);
+                        break;
+
+                    }
+                    if (gameTable[row - 1][column + 1] == 1) {
+                        thiefRow = row - 1;
+                        thiefColumn = column + 1;
+                        police.iSawThief(thiefRow, thiefColumn, p, n);
+                        break;
+                    }
+                    if (gameTable[row - 2][column + 2] == 1) {
+                        thiefRow = row - 2;
+                        thiefColumn = column + 2;
+                        police.iSawThief(thiefRow, thiefColumn, p, n);
+                        break;
+                    }
+                    if (gameTable[row][column + 1] == 1) {
+                        thiefRow = row;
+                        thiefColumn = column + 1;
+                        police.iSawThief(thiefRow, thiefColumn, p, n);
+                        break;
+                    }
+                    if (gameTable[row][column + 2] == 1) {
+                        thiefRow = row;
+                        thiefColumn = column + 2;
+                        police.iSawThief(thiefRow, thiefColumn, p, n);
+                        break;
+                    }
+                    if (gameTable[row + 1][column + 1] == 1) {
+                        thiefRow = row + 1;
+                        thiefColumn = column + 1;
+                        police.iSawThief(thiefRow, thiefColumn, p, n);
+                        break;
+                    }
+                    if (gameTable[row + 2][column + 2] == 1) {
+                        thiefRow = row + 2;
+                        thiefColumn = column + 2;
+                        police.iSawThief(thiefRow, thiefColumn, p, n);
+                        break;
+                    }
+                    if (gameTable[row + 1][column] == 1) {
+                        thiefRow = row + 1;
+                        thiefColumn = column;
+                        police.iSawThief(thiefRow, thiefColumn, p, n);
+                        break;
+                    }
+                    if (gameTable[row + 2][column] == 1) {
+                        thiefRow = row + 2;
+                        thiefColumn = column;
+                        police.iSawThief(thiefRow, thiefColumn, p, n);
+                        break;
+                    }
+
+                }
+                if (row == police.getTotalRow() - 1 && column > 1 && column < police.getTotalColumn() - 2) {
+                    result = 1;
+                    if (gameTable[row][column - 1] == 1) {
+                        thiefRow = row;
+                        thiefColumn = column - 1;
+                        police.iSawThief(thiefRow, thiefColumn, p, n);
+                        break;
+
+                    }
+                    if (gameTable[row][column - 2] == 1) {
+                        thiefRow = row;
+                        thiefColumn = column - 2;
+                        police.iSawThief(thiefRow, thiefColumn, p, n);
+                        break;
+
+                    }
+                    if (gameTable[row - 1][column] == 1) {
+                        thiefRow = row - 1;
+                        thiefColumn = column;
+                        police.iSawThief(thiefRow, thiefColumn, p, n);
+                        break;
+                    }
+                    if (gameTable[row - 2][column] == 1) {
+                        thiefRow = row - 2;
+                        thiefColumn = column;
+                        police.iSawThief(thiefRow, thiefColumn, p, n);
+                        break;
+                    }
+                    if (gameTable[row - 1][column - 1] == 1) {
+                        thiefRow = row - 1;
+                        thiefColumn = column - 1;
+                        police.iSawThief(thiefRow, thiefColumn, p, n);
+                        break;
+                    }
+                    if (gameTable[row - 2][column - 2] == 1) {
+                        thiefRow = row - 2;
+                        thiefColumn = column - 2;
+                        police.iSawThief(thiefRow, thiefColumn, p, n);
+                        break;
+                    }
+                    if (gameTable[row - 1][column + 1] == 1) {
+                        thiefRow = row - 1;
+                        thiefColumn = column + 1;
+                        police.iSawThief(thiefRow, thiefColumn, p, n);
+                        break;
+                    }
+                    if (gameTable[row - 2][column + 2] == 1) {
+                        thiefRow = row - 2;
+                        thiefColumn = column + 2;
+                        police.iSawThief(thiefRow, thiefColumn, p, n);
+                        break;
+                    }
+                    if (gameTable[row][column + 1] == 1) {
+                        thiefRow = row;
+                        thiefColumn = column + 1;
+                        police.iSawThief(thiefRow, thiefColumn, p, n);
+                        break;
+                    }
+                    if (gameTable[row][column + 2] == 1) {
+                        thiefRow = row;
+                        thiefColumn = column + 2;
+                        police.iSawThief(thiefRow, thiefColumn, p, n);
+                        break;
+                    }
+
+                }
+                if (column == police.getTotalColumn() - 1 && row > 1 && row < police.getTotalRow() - 2) {
+                    result = 1;
+                    if (gameTable[row - 1][column] == 1) {
+                        thiefRow = row - 1;
+                        thiefColumn = column;
+                        police.iSawThief(thiefRow, thiefColumn, p, n);
+                        break;
+
+                    }
+                    if (gameTable[row - 2][column] == 1) {
+                        thiefRow = row - 2;
+                        thiefColumn = column;
+                        police.iSawThief(thiefRow, thiefColumn, p, n);
+                        break;
+
+                    }
+                    if (gameTable[row - 1][column - 1] == 1) {
+                        thiefRow = row - 1;
+                        thiefColumn = column - 1;
+                        police.iSawThief(thiefRow, thiefColumn, p, n);
+                        break;
+                    }
+                    if (gameTable[row - 2][column - 2] == 1) {
+                        thiefRow = row - 2;
+                        thiefColumn = column - 2;
+                        police.iSawThief(thiefRow, thiefColumn, p, n);
+                        break;
+                    }
+                    if (gameTable[row][column - 1] == 1) {
+                        thiefRow = row;
+                        thiefColumn = column - 1;
+                        police.iSawThief(thiefRow, thiefColumn, p, n);
+                        break;
+                    }
+                    if (gameTable[row][column - 2] == 1) {
+                        thiefRow = row;
+                        thiefColumn = column - 2;
+                        police.iSawThief(thiefRow, thiefColumn, p, n);
+                        break;
+                    }
+                    if (gameTable[row + 1][column - 1] == 1) {
+                        thiefRow = row + 1;
+                        thiefColumn = column - 1;
+                        police.iSawThief(thiefRow, thiefColumn, p, n);
+                        break;
+                    }
+                    if (gameTable[row + 2][column - 2] == 1) {
+                        thiefRow = row + 2;
+                        thiefColumn = column - 2;
+                        police.iSawThief(thiefRow, thiefColumn, p, n);
+                        break;
+                    }
+                    if (gameTable[row + 1][column] == 1) {
+                        thiefRow = row + 1;
+                        thiefColumn = column;
+                        police.iSawThief(thiefRow, thiefColumn, p, n);
+                        break;
+                    }
+                    if (gameTable[row + 2][column] == 1) {
+                        thiefRow = row + 2;
+                        thiefColumn = column;
+                        police.iSawThief(thiefRow, thiefColumn, p, n);
+                        break;
+                    }
+
+                }
+                if (row == 1 && column == 1) {
+                    result = 1;
+                    if (gameTable[row - 1][column] == 1) {
+                        thiefRow = row - 1;
+                        thiefColumn = column;
+                        police.iSawThief(thiefRow, thiefColumn, p, n);
+                        break;
+
+                    }
+                    if (gameTable[row + 1][column] == 1) {
+                        thiefRow = row + 1;
+                        thiefColumn = column;
+                        police.iSawThief(thiefRow, thiefColumn, p, n);
+                        break;
+
+                    }
+                    if (gameTable[row + 2][column] == 1) {
+                        thiefRow = row + 2;
+                        thiefColumn = column;
+                        police.iSawThief(thiefRow, thiefColumn, p, n);
+                        break;
+                    }
+                    if (gameTable[row - 1][column - 1] == 1) {
+                        thiefRow = row - 1;
+                        thiefColumn = column - 1;
+                        police.iSawThief(thiefRow, thiefColumn, p, n);
+                        break;
+                    }
+                    if (gameTable[row][column - 1] == 1) {
+                        thiefRow = row;
+                        thiefColumn = column - 1;
+                        police.iSawThief(thiefRow, thiefColumn, p, n);
+                        break;
+                    }
+                    if (gameTable[row][column + 1] == 1) {
+                        thiefRow = row;
+                        thiefColumn = column + 1;
+                        police.iSawThief(thiefRow, thiefColumn, p, n);
+                        break;
+                    }
+                    if (gameTable[row - 1][column + 1] == 1) {
+                        thiefRow = row - 1;
+                        thiefColumn = column + 1;
+                        police.iSawThief(thiefRow, thiefColumn, p, n);
+                        break;
+                    }
+                    if (gameTable[row][column + 2] == 1) {
+                        thiefRow = row;
+                        thiefColumn = column + 2;
+                        police.iSawThief(thiefRow, thiefColumn, p, n);
+                        break;
+                    }
+                    if (gameTable[row + 1][column - 1] == 1) {
+                        thiefRow = row + 1;
+                        thiefColumn = column - 1;
+                        police.iSawThief(thiefRow, thiefColumn, p, n);
+                        break;
+                    }
+                    if (gameTable[row + 1][column + 1] == 1) {
+                        thiefRow = row + 2;
+                        thiefColumn = column;
+                        police.iSawThief(thiefRow, thiefColumn, p, n);
+                        break;
+                    }
+                    if (gameTable[row + 2][column + 2] == 1) {
+                        thiefRow = row + 2;
+                        thiefColumn = column + 2;
+                        police.iSawThief(thiefRow, thiefColumn, p, n);
+                        break;
+                    }
+
+                }
+                if (row == 1 && column == police.getTotalColumn() - 2) {
+                    result = 1;
+                    if (gameTable[row - 1][column] == 1) {
+                        thiefRow = row - 1;
+                        thiefColumn = column;
+                        police.iSawThief(thiefRow, thiefColumn, p, n);
+                        break;
+
+                    }
+                    if (gameTable[row + 1][column] == 1) {
+                        thiefRow = row + 1;
+                        thiefColumn = column;
+                        police.iSawThief(thiefRow, thiefColumn, p, n);
+                        break;
+
+                    }
+                    if (gameTable[row + 2][column] == 1) {
+                        thiefRow = row + 2;
+                        thiefColumn = column;
+                        police.iSawThief(thiefRow, thiefColumn, p, n);
+                        break;
+                    }
+                    if (gameTable[row - 1][column - 1] == 1) {
+                        thiefRow = row - 1;
+                        thiefColumn = column - 1;
+                        police.iSawThief(thiefRow, thiefColumn, p, n);
+                        break;
+                    }
+                    if (gameTable[row][column - 1] == 1) {
+                        thiefRow = row;
+                        thiefColumn = column - 1;
+                        police.iSawThief(thiefRow, thiefColumn, p, n);
+                        break;
+                    }
+                    if (gameTable[row][column + 1] == 1) {
+                        thiefRow = row;
+                        thiefColumn = column + 1;
+                        police.iSawThief(thiefRow, thiefColumn, p, n);
+                        break;
+                    }
+                    if (gameTable[row - 1][column + 1] == 1) {
+                        thiefRow = row - 1;
+                        thiefColumn = column + 1;
+                        police.iSawThief(thiefRow, thiefColumn, p, n);
+                        break;
+                    }
+                    if (gameTable[row + 1][column + 1] == 1) {
+                        thiefRow = row + 1;
+                        thiefColumn = column + 1;
+                        police.iSawThief(thiefRow, thiefColumn, p, n);
+                        break;
+                    }
+                    if (gameTable[row + 1][column - 1] == 1) {
+                        thiefRow = row + 1;
+                        thiefColumn = column - 1;
+                        police.iSawThief(thiefRow, thiefColumn, p, n);
+                        break;
+                    }
+                    if (gameTable[row][column - 2] == 1) {
+                        thiefRow = row;
+                        thiefColumn = column - 2;
+                        police.iSawThief(thiefRow, thiefColumn, p, n);
+                        break;
+                    }
+                    if (gameTable[row + 2][column - 2] == 1) {
+                        thiefRow = row + 2;
+                        thiefColumn = column - 2;
+                        police.iSawThief(thiefRow, thiefColumn, p, n);
+                        break;
+                    }
+
+                }
+                if (row == police.getTotalRow() - 2 && column == 1) {
+                    result = 1;
+                    if (gameTable[row - 1][column] == 1) {
+                        thiefRow = row - 1;
+                        thiefColumn = column;
+                        police.iSawThief(thiefRow, thiefColumn, p, n);
+                        break;
+
+                    }
+                    if (gameTable[row + 1][column] == 1) {
+                        thiefRow = row + 1;
+                        thiefColumn = column;
+                        police.iSawThief(thiefRow, thiefColumn, p, n);
+                        break;
+
+                    }
+                    if (gameTable[row - 2][column] == 1) {
+                        thiefRow = row - 2;
+                        thiefColumn = column;
+                        police.iSawThief(thiefRow, thiefColumn, p, n);
+                        break;
+                    }
+                    if (gameTable[row - 1][column - 1] == 1) {
+                        thiefRow = row - 1;
+                        thiefColumn = column - 1;
+                        police.iSawThief(thiefRow, thiefColumn, p, n);
+                        break;
+                    }
+                    if (gameTable[row][column - 1] == 1) {
+                        thiefRow = row;
+                        thiefColumn = column - 1;
+                        police.iSawThief(thiefRow, thiefColumn, p, n);
+                        break;
+                    }
+                    if (gameTable[row][column + 1] == 1) {
+                        thiefRow = row;
+                        thiefColumn = column + 1;
+                        police.iSawThief(thiefRow, thiefColumn, p, n);
+                        break;
+                    }
+                    if (gameTable[row - 1][column + 1] == 1) {
+                        thiefRow = row - 1;
+                        thiefColumn = column + 1;
+                        police.iSawThief(thiefRow, thiefColumn, p, n);
+                        break;
+                    }
+                    if (gameTable[row + 1][column + 1] == 1) {
+                        thiefRow = row + 1;
+                        thiefColumn = column + 1;
+                        police.iSawThief(thiefRow, thiefColumn, p, n);
+                        break;
+                    }
+                    if (gameTable[row + 1][column - 1] == 1) {
+                        thiefRow = row + 1;
+                        thiefColumn = column - 1;
+                        police.iSawThief(thiefRow, thiefColumn, p, n);
+                        break;
+                    }
+                    if (gameTable[row][column + 2] == 1) {
+                        thiefRow = row;
+                        thiefColumn = column + 2;
+                        police.iSawThief(thiefRow, thiefColumn, p, n);
+                        break;
+                    }
+                    if (gameTable[row - 2][column + 2] == 1) {
+                        thiefRow = row - 2;
+                        thiefColumn = column + 2;
+                        police.iSawThief(thiefRow, thiefColumn, p, n);
+                        break;
+                    }
+
+                }
+                if (row == police.getTotalRow() - 2 && column == police.getTotalColumn() - 2) {
+                    result = 1;
+                    if (gameTable[row - 1][column] == 1) {
+                        thiefRow = row - 1;
+                        thiefColumn = column;
+                        police.iSawThief(thiefRow, thiefColumn, p, n);
+                        break;
+
+                    }
+                    if (gameTable[row + 1][column] == 1) {
+                        thiefRow = row + 1;
+                        thiefColumn = column;
+                        police.iSawThief(thiefRow, thiefColumn, p, n);
+                        break;
+
+                    }
+                    if (gameTable[row - 2][column] == 1) {
+                        thiefRow = row - 2;
+                        thiefColumn = column;
+                        police.iSawThief(thiefRow, thiefColumn, p, n);
+                        break;
+                    }
+                    if (gameTable[row - 1][column - 1] == 1) {
+                        thiefRow = row - 1;
+                        thiefColumn = column - 1;
+                        police.iSawThief(thiefRow, thiefColumn, p, n);
+                        break;
+                    }
+                    if (gameTable[row][column - 1] == 1) {
+                        thiefRow = row;
+                        thiefColumn = column - 1;
+                        police.iSawThief(thiefRow, thiefColumn, p, n);
+                        break;
+                    }
+                    if (gameTable[row][column + 1] == 1) {
+                        thiefRow = row;
+                        thiefColumn = column + 1;
+                        police.iSawThief(thiefRow, thiefColumn, p, n);
+                        break;
+                    }
+                    if (gameTable[row - 1][column + 1] == 1) {
+                        thiefRow = row - 1;
+                        thiefColumn = column + 1;
+                        police.iSawThief(thiefRow, thiefColumn, p, n);
+                        break;
+                    }
+                    if (gameTable[row + 1][column + 1] == 1) {
+                        thiefRow = row + 1;
+                        thiefColumn = column + 1;
+                        police.iSawThief(thiefRow, thiefColumn, p, n);
+                        break;
+                    }
+                    if (gameTable[row + 1][column - 1] == 1) {
+                        thiefRow = row + 1;
+                        thiefColumn = column - 1;
+                        police.iSawThief(thiefRow, thiefColumn, p, n);
+                        break;
+                    }
+                    if (gameTable[row][column - 2] == 1) {
+                        thiefRow = row;
+                        thiefColumn = column - 2;
+                        police.iSawThief(thiefRow, thiefColumn, p, n);
+                        break;
+                    }
+                    if (gameTable[row - 2][column - 2] == 1) {
+                        thiefRow = row - 2;
+                        thiefColumn = column - 2;
+                        police.iSawThief(thiefRow, thiefColumn, p, n);
+                        break;
+                    }
+
+                }
+                if (column == 1 && row > 1 && row < police.getTotalRow() - 2) {
+                    result = 1;
+                    if (gameTable[row - 1][column] == 1) {
+                        thiefRow = row - 1;
+                        thiefColumn = column;
+                        police.iSawThief(thiefRow, thiefColumn, p, n);
+                        break;
+
+                    }
+                    if (gameTable[row + 1][column] == 1) {
+                        thiefRow = row + 1;
+                        thiefColumn = column;
+                        police.iSawThief(thiefRow, thiefColumn, p, n);
+                        break;
+
+                    }
+                    if (gameTable[row + 2][column] == 1) {
+                        thiefRow = row + 2;
+                        thiefColumn = column;
+                        police.iSawThief(thiefRow, thiefColumn, p, n);
+                        break;
+                    }
+                    if (gameTable[row - 1][column - 1] == 1) {
+                        thiefRow = row - 1;
+                        thiefColumn = column - 1;
+                        police.iSawThief(thiefRow, thiefColumn, p, n);
+                        break;
+                    }
+                    if (gameTable[row][column - 1] == 1) {
+                        thiefRow = row;
+                        thiefColumn = column - 1;
+                        police.iSawThief(thiefRow, thiefColumn, p, n);
+                        break;
+                    }
+                    if (gameTable[row][column + 1] == 1) {
+                        thiefRow = row;
+                        thiefColumn = column + 1;
+                        police.iSawThief(thiefRow, thiefColumn, p, n);
+                        break;
+                    }
+                    if (gameTable[row - 1][column + 1] == 1) {
+                        thiefRow = row - 1;
+                        thiefColumn = column + 1;
+                        police.iSawThief(thiefRow, thiefColumn, p, n);
+                        break;
+                    }
+                    if (gameTable[row + 1][column + 1] == 1) {
+                        thiefRow = row + 1;
+                        thiefColumn = column + 1;
+                        police.iSawThief(thiefRow, thiefColumn, p, n);
+                        break;
+                    }
+                    if (gameTable[row + 1][column - 1] == 1) {
+                        thiefRow = row + 1;
+                        thiefColumn = column - 1;
+                        police.iSawThief(thiefRow, thiefColumn, p, n);
+                        break;
+                    }
+                    if (gameTable[row - 2][column + 2] == 1) {
+                        thiefRow = row - 2;
+                        thiefColumn = column + 2;
+                        police.iSawThief(thiefRow, thiefColumn, p, n);
+                        break;
+                    }
+                    if (gameTable[row + 2][column + 2] == 1) {
+                        thiefRow = row + 2;
+                        thiefColumn = column + 2;
+                        police.iSawThief(thiefRow, thiefColumn, p, n);
+                        break;
+                    }
+                    if (gameTable[row - 2][column] == 1) {
+                        thiefRow = row - 2;
+                        thiefColumn = column;
+                        police.iSawThief(thiefRow, thiefColumn, p, n);
+                        break;
+                    }
+                    if (gameTable[row][column + 2] == 1) {
+                        thiefRow = row;
+                        thiefColumn = column + 2;
+                        police.iSawThief(thiefRow, thiefColumn, p, n);
+                        break;
+                    }
+                }
+                if (row == 1 && column > 1 && column < police.getTotalColumn() - 2) {
+                    result = 1;
+                    if (gameTable[row - 1][column] == 1) {
+                        thiefRow = row - 1;
+                        thiefColumn = column;
+                        police.iSawThief(thiefRow, thiefColumn, p, n);
+                        break;
+
+                    }
+                    if (gameTable[row + 1][column] == 1) {
+                        thiefRow = row + 1;
+                        thiefColumn = column;
+                        police.iSawThief(thiefRow, thiefColumn, p, n);
+                        break;
+
+                    }
+                    if (gameTable[row + 2][column] == 1) {
+                        thiefRow = row + 2;
+                        thiefColumn = column;
+                        police.iSawThief(thiefRow, thiefColumn, p, n);
+                        break;
+                    }
+                    if (gameTable[row - 1][column - 1] == 1) {
+                        thiefRow = row - 1;
+                        thiefColumn = column - 1;
+                        police.iSawThief(thiefRow, thiefColumn, p, n);
+                        break;
+                    }
+                    if (gameTable[row][column - 1] == 1) {
+                        thiefRow = row;
+                        thiefColumn = column - 1;
+                        police.iSawThief(thiefRow, thiefColumn, p, n);
+                        break;
+                    }
+                    if (gameTable[row][column + 1] == 1) {
+                        thiefRow = row;
+                        thiefColumn = column + 1;
+                        police.iSawThief(thiefRow, thiefColumn, p, n);
+                        break;
+                    }
+                    if (gameTable[row - 1][column + 1] == 1) {
+                        thiefRow = row - 1;
+                        thiefColumn = column + 1;
+                        police.iSawThief(thiefRow, thiefColumn, p, n);
+                        break;
+                    }
+                    if (gameTable[row + 1][column + 1] == 1) {
+                        thiefRow = row + 1;
+                        thiefColumn = column + 1;
+                        police.iSawThief(thiefRow, thiefColumn, p, n);
+                        break;
+                    }
+                    if (gameTable[row + 1][column - 1] == 1) {
+                        thiefRow = row + 1;
+                        thiefColumn = column - 1;
+                        police.iSawThief(thiefRow, thiefColumn, p, n);
+                        break;
+                    }
+                    if (gameTable[row][column + 2] == 1) {
+                        thiefRow = row;
+                        thiefColumn = column + 2;
+                        police.iSawThief(thiefRow, thiefColumn, p, n);
+                        break;
+                    }
+                    if (gameTable[row][column - 2] == 1) {
+                        thiefRow = row;
+                        thiefColumn = column - 2;
+                        police.iSawThief(thiefRow, thiefColumn, p, n);
+                        break;
+                    }
+                    if (gameTable[row + 2][column - 2] == 1) {
+                        thiefRow = row + 2;
+                        thiefColumn = column - 2;
+                        police.iSawThief(thiefRow, thiefColumn, p, n);
+                        break;
+                    }
+                    if (gameTable[row + 2][column + 2] == 1) {
+                        thiefRow = row + 2;
+                        thiefColumn = column + 2;
+                        police.iSawThief(thiefRow, thiefColumn, p, n);
+                        break;
+                    }
+                }
+                if (column == police.getTotalColumn() - 2 && row > 1 && row < police.getTotalRow() - 2) {
+                    result = 1;
+                    if (gameTable[row - 1][column] == 1) {
+                        thiefRow = row - 1;
+                        thiefColumn = column;
+                        police.iSawThief(thiefRow, thiefColumn, p, n);
+                        break;
+
+                    }
+                    if (gameTable[row + 1][column] == 1) {
+                        thiefRow = row + 1;
+                        thiefColumn = column;
+                        police.iSawThief(thiefRow, thiefColumn, p, n);
+                        break;
+
+                    }
+                    if (gameTable[row + 2][column] == 1) {
+                        thiefRow = row + 2;
+                        thiefColumn = column;
+                        police.iSawThief(thiefRow, thiefColumn, p, n);
+                        break;
+                    }
+                    if (gameTable[row - 2][column] == 1) {
+                        thiefRow = row - 2;
+                        thiefColumn = column;
+                        police.iSawThief(thiefRow, thiefColumn, p, n);
+                        break;
+                    }
+                    if (gameTable[row][column - 1] == 1) {
+                        thiefRow = row;
+                        thiefColumn = column - 1;
+                        police.iSawThief(thiefRow, thiefColumn, p, n);
+                        break;
+                    }
+                    if (gameTable[row][column + 1] == 1) {
+                        thiefRow = row;
+                        thiefColumn = column + 1;
+                        police.iSawThief(thiefRow, thiefColumn, p, n);
+                        break;
+                    }
+                    if (gameTable[row - 1][column + 1] == 1) {
+                        thiefRow = row - 1;
+                        thiefColumn = column + 1;
+                        police.iSawThief(thiefRow, thiefColumn, p, n);
+                        break;
+                    }
+                    if (gameTable[row + 1][column + 1] == 1) {
+                        thiefRow = row + 1;
+                        thiefColumn = column + 1;
+                        police.iSawThief(thiefRow, thiefColumn, p, n);
+                        break;
+                    }
+                    if (gameTable[row + 1][column - 1] == 1) {
+                        thiefRow = row + 1;
+                        thiefColumn = column - 1;
+                        police.iSawThief(thiefRow, thiefColumn, p, n);
+                        break;
+                    }
+                    if (gameTable[row - 2][column - 2] == 1) {
+                        thiefRow = row - 2;
+                        thiefColumn = column - 2;
+                        police.iSawThief(thiefRow, thiefColumn, p, n);
+                        break;
+                    }
+                    if (gameTable[row + 2][column - 2] == 1) {
+                        thiefRow = row + 2;
+                        thiefColumn = column - 2;
+                        police.iSawThief(thiefRow, thiefColumn, p, n);
+                        break;
+                    }
+                    if (gameTable[row][column - 2] == 1) {
+                        thiefRow = row;
+                        thiefColumn = column - 2;
+                        police.iSawThief(thiefRow, thiefColumn, p, n);
+                        break;
+                    }
+                    if (gameTable[row - 1][column - 1] == 1) {
+                        thiefRow = row - 1;
+                        thiefColumn = column - 1;
+                        police.iSawThief(thiefRow, thiefColumn, p, n);
+                        break;
+                    }
+                }
+                if (row == police.getTotalRow() - 2 && column > 1 && column < police.getTotalColumn() - 2) {
+                    result = 1;
+                    if (gameTable[row - 1][column] == 1) {
+                        thiefRow = row - 1;
+                        thiefColumn = column;
+                        police.iSawThief(thiefRow, thiefColumn, p, n);
+                        break;
+
+                    }
+                    if (gameTable[row + 1][column] == 1) {
+                        thiefRow = row + 1;
+                        thiefColumn = column;
+                        police.iSawThief(thiefRow, thiefColumn, p, n);
+                        break;
+
+                    }
+                    if (gameTable[row - 2][column] == 1) {
+                        thiefRow = row - 2;
+                        thiefColumn = column;
+                        police.iSawThief(thiefRow, thiefColumn, p, n);
+                        break;
+                    }
+                    if (gameTable[row][column + 1] == 1) {
+                        thiefRow = row;
+                        thiefColumn = column + 1;
+                        police.iSawThief(thiefRow, thiefColumn, p, n);
+                        break;
+                    }
+                    if (gameTable[row][column + 2] == 1) {
+                        thiefRow = row;
+                        thiefColumn = column + 2;
+                        police.iSawThief(thiefRow, thiefColumn, p, n);
+                        break;
+                    }
+                    if (gameTable[row][column - 1] == 1) {
+                        thiefRow = row;
+                        thiefColumn = column - 1;
+                        police.iSawThief(thiefRow, thiefColumn, p, n);
+                        break;
+                    }
+                    if (gameTable[row][column - 2] == 1) {
+                        thiefRow = row;
+                        thiefColumn = column - 2;
+                        police.iSawThief(thiefRow, thiefColumn, p, n);
+                        break;
+                    }
+                    if (gameTable[row + 1][column + 1] == 1) {
+                        thiefRow = row + 1;
+                        thiefColumn = column + 1;
+                        police.iSawThief(thiefRow, thiefColumn, p, n);
+                        break;
+                    }
+                    if (gameTable[row + 1][column - 1] == 1) {
+                        thiefRow = row + 1;
+                        thiefColumn = column - 1;
+                        police.iSawThief(thiefRow, thiefColumn, p, n);
+                        break;
+                    }
+                    if (gameTable[row - 2][column - 2] == 1) {
+                        thiefRow = row - 2;
+                        thiefColumn = column - 2;
+                        police.iSawThief(thiefRow, thiefColumn, p, n);
+                        break;
+                    }
+                    if (gameTable[row - 1][column - 1] == 1) {
+                        thiefRow = row - 1;
+                        thiefColumn = column - 1;
+                        police.iSawThief(thiefRow, thiefColumn, p, n);
+                        break;
+                    }
+                    if (gameTable[row - 1][column + 1] == 1) {
+                        thiefRow = row - 1;
+                        thiefColumn = column + 1;
+                        police.iSawThief(thiefRow, thiefColumn, p, n);
+                        break;
+                    }
+                    if (gameTable[row - 2][column + 2] == 1) {
+                        thiefRow = row - 2;
+                        thiefColumn = column + 2;
+                        police.iSawThief(thiefRow, thiefColumn, p, n);
+                        break;
+                    }
+                }
+                if (row == police.getTotalRow() - 2 && column == police.getTotalColumn() - 1) {
+                    result = 1;
+                    if (gameTable[row - 1][column] == 1) {
+                        thiefRow = row - 1;
+                        thiefColumn = column;
+                        police.iSawThief(thiefRow, thiefColumn, p, n);
+                        break;
+
+                    }
+                    if (gameTable[row + 1][column] == 1) {
+                        thiefRow = row + 1;
+                        thiefColumn = column;
+                        police.iSawThief(thiefRow, thiefColumn, p, n);
+                        break;
+
+                    }
+                    if (gameTable[row - 2][column] == 1) {
+                        thiefRow = row - 2;
+                        thiefColumn = column;
+                        police.iSawThief(thiefRow, thiefColumn, p, n);
+                        break;
+                    }
+                    if (gameTable[row][column - 1] == 1) {
+                        thiefRow = row;
+                        thiefColumn = column - 1;
+                        police.iSawThief(thiefRow, thiefColumn, p, n);
+                        break;
+                    }
+                    if (gameTable[row][column - 2] == 1) {
+                        thiefRow = row;
+                        thiefColumn = column - 2;
+                        police.iSawThief(thiefRow, thiefColumn, p, n);
+                        break;
+                    }
+                    if (gameTable[row - 1][column - 1] == 1) {
+                        thiefRow = row - 1;
+                        thiefColumn = column - 1;
+                        police.iSawThief(thiefRow, thiefColumn, p, n);
+                        break;
+                    }
+                    if (gameTable[row - 2][column - 2] == 1) {
+                        thiefRow = row - 2;
+                        thiefColumn = column - 2;
+                        police.iSawThief(thiefRow, thiefColumn, p, n);
+                        break;
+                    }
+                    if (gameTable[row + 1][column - 1] == 1) {
+                        thiefRow = row + 1;
+                        thiefColumn = column - 1;
+                        police.iSawThief(thiefRow, thiefColumn, p, n);
+                        break;
+                    }
+
+                }
+                if (row == 1 && column == police.getTotalColumn() - 1) {
+                    result = 1;
+                    if (gameTable[row - 1][column] == 1) {
+                        thiefRow = row - 1;
+                        thiefColumn = column;
+                        police.iSawThief(thiefRow, thiefColumn, p, n);
+                        break;
+
+                    }
+                    if (gameTable[row + 1][column] == 1) {
+                        thiefRow = row + 1;
+                        thiefColumn = column;
+                        police.iSawThief(thiefRow, thiefColumn, p, n);
+                        break;
+
+                    }
+                    if (gameTable[row + 2][column] == 1) {
+                        thiefRow = row + 2;
+                        thiefColumn = column;
+                        police.iSawThief(thiefRow, thiefColumn, p, n);
+                        break;
+                    }
+                    if (gameTable[row][column - 1] == 1) {
+                        thiefRow = row;
+                        thiefColumn = column - 1;
+                        police.iSawThief(thiefRow, thiefColumn, p, n);
+                        break;
+                    }
+                    if (gameTable[row][column - 2] == 1) {
+                        thiefRow = row;
+                        thiefColumn = column - 2;
+                        police.iSawThief(thiefRow, thiefColumn, p, n);
+                        break;
+                    }
+                    if (gameTable[row - 1][column - 1] == 1) {
+                        thiefRow = row - 1;
+                        thiefColumn = column - 1;
+                        police.iSawThief(thiefRow, thiefColumn, p, n);
+                        break;
+                    }
+                    if (gameTable[row + 2][column - 2] == 1) {
+                        thiefRow = row + 2;
+                        thiefColumn = column - 2;
+                        police.iSawThief(thiefRow, thiefColumn, p, n);
+                        break;
+                    }
+                    if (gameTable[row + 1][column - 1] == 1) {
+                        thiefRow = row + 1;
+                        thiefColumn = column - 1;
+                        police.iSawThief(thiefRow, thiefColumn, p, n);
+                        break;
+                    }
+
+                }
+                if (row == 1 && column == 0) {
+                    result = 1;
+                    if (gameTable[row - 1][column] == 1) {
+                        thiefRow = row - 1;
+                        thiefColumn = column;
+                        police.iSawThief(thiefRow, thiefColumn, p, n);
+                        break;
+
+                    }
+                    if (gameTable[row + 1][column] == 1) {
+                        thiefRow = row + 1;
+                        thiefColumn = column;
+                        police.iSawThief(thiefRow, thiefColumn, p, n);
+                        break;
+
+                    }
+                    if (gameTable[row + 2][column] == 1) {
+                        thiefRow = row + 2;
+                        thiefColumn = column;
+                        police.iSawThief(thiefRow, thiefColumn, p, n);
+                        break;
+                    }
+                    if (gameTable[row][column + 1] == 1) {
+                        thiefRow = row;
+                        thiefColumn = column + 1;
+                        police.iSawThief(thiefRow, thiefColumn, p, n);
+                        break;
+                    }
+                    if (gameTable[row][column + 2] == 1) {
+                        thiefRow = row;
+                        thiefColumn = column + 2;
+                        police.iSawThief(thiefRow, thiefColumn, p, n);
+                        break;
+                    }
+                    if (gameTable[row - 1][column + 1] == 1) {
+                        thiefRow = row - 1;
+                        thiefColumn = column + 1;
+                        police.iSawThief(thiefRow, thiefColumn, p, n);
+                        break;
+                    }
+                    if (gameTable[row + 1][column + 1] == 1) {
+                        thiefRow = row + 1;
+                        thiefColumn = column + 1;
+                        police.iSawThief(thiefRow, thiefColumn, p, n);
+                        break;
+                    }
+                    if (gameTable[row + 2][column + 2] == 1) {
+                        thiefRow = row + 2;
+                        thiefColumn = column + 2;
+                        police.iSawThief(thiefRow, thiefColumn, p, n);
+                        break;
+                    }
+
+                }
+                if (row == police.getTotalRow() - 2 && column == 0) {
+                    result = 1;
+                    if (gameTable[row - 1][column] == 1) {
+                        thiefRow = row - 1;
+                        thiefColumn = column;
+                        police.iSawThief(thiefRow, thiefColumn, p, n);
+                        break;
+
+                    }
+                    if (gameTable[row + 1][column] == 1) {
+                        thiefRow = row + 1;
+                        thiefColumn = column;
+                        police.iSawThief(thiefRow, thiefColumn, p, n);
+                        break;
+
+                    }
+                    if (gameTable[row - 2][column] == 1) {
+                        thiefRow = row - 2;
+                        thiefColumn = column;
+                        police.iSawThief(thiefRow, thiefColumn, p, n);
+                        break;
+                    }
+                    if (gameTable[row][column + 1] == 1) {
+                        thiefRow = row;
+                        thiefColumn = column + 1;
+                        police.iSawThief(thiefRow, thiefColumn, p, n);
+                        break;
+                    }
+                    if (gameTable[row][column + 2] == 1) {
+                        thiefRow = row;
+                        thiefColumn = column + 2;
+                        police.iSawThief(thiefRow, thiefColumn, p, n);
+                        break;
+                    }
+                    if (gameTable[row - 1][column + 1] == 1) {
+                        thiefRow = row - 1;
+                        thiefColumn = column + 1;
+                        police.iSawThief(thiefRow, thiefColumn, p, n);
+                        break;
+                    }
+                    if (gameTable[row - 2][column + 2] == 1) {
+                        thiefRow = row - 2;
+                        thiefColumn = column + 2;
+                        police.iSawThief(thiefRow, thiefColumn, p, n);
+                        break;
+                    }
+                    if (gameTable[row + 1][column + 1] == 1) {
+                        thiefRow = row + 1;
+                        thiefColumn = column - 1;
+                        police.iSawThief(thiefRow, thiefColumn, p, n);
+                        break;
+                    }
+
+                }
+                if (result == 0) {
+                    if (gameTable[row][column + 1] == 1) {
+                        thiefRow = row;
+                        thiefColumn = column + 1;
+                        police.iSawThief(thiefRow, thiefColumn, p, n);
+                        break;
+                    }
+                    if (gameTable[row][column + 2] == 1) {
+                        thiefRow = row;
+                        thiefColumn = column + 2;
+                        police.iSawThief(thiefRow, thiefColumn, p, n);
+                        break;
+                    }
+                    if (gameTable[row][column - 1] == 1) {
+                        thiefRow = row;
+                        thiefColumn = column - 1;
+                        police.iSawThief(thiefRow, thiefColumn, p, n);
+                        break;
+                    }
+                    if (gameTable[row][column - 2] == 1) {
+                        thiefRow = row;
+                        thiefColumn = column - 2;
+                        police.iSawThief(thiefRow, thiefColumn, p, n);
+                        break;
+                    }
+                    if (gameTable[row - 1][column] == 1) {
+                        thiefRow = row - 1;
+                        thiefColumn = column;
+                        police.iSawThief(thiefRow, thiefColumn, p, n);
+                        break;
+                    }
+                    if (gameTable[row - 2][column] == 1) {
+                        thiefRow = row - 2;
+                        thiefColumn = column;
+                        police.iSawThief(thiefRow, thiefColumn, p, n);
+                        break;
+                    }
+                    if (gameTable[row + 1][column] == 1) {
+                        thiefRow = row + 1;
+                        thiefColumn = column;
+                        police.iSawThief(thiefRow, thiefColumn, p, n);
+                        break;
+                    }
+                    if (gameTable[row + 2][column] == 1) {
+                        thiefRow = row + 2;
+                        thiefColumn = column;
+                        police.iSawThief(thiefRow, thiefColumn, p, n);
+                        break;
+                    }
+                    if (gameTable[row - 1][column - 1] == 1) {
+                        thiefRow = row - 1;
+                        thiefColumn = column - 1;
+                        police.iSawThief(thiefRow, thiefColumn, p, n);
+                        break;
+                    }
+                    if (gameTable[row - 2][column - 2] == 1) {
+                        thiefRow = row - 2;
+                        thiefColumn = column - 2;
+                        police.iSawThief(thiefRow, thiefColumn, p, n);
+                        break;
+                    }
+                    if (gameTable[row - 1][column + 1] == 1) {
+                        thiefRow = row - 1;
+                        thiefColumn = column + 1;
+                        police.iSawThief(thiefRow, thiefColumn, p, n);
+                        break;
+                    }
+                    if (gameTable[row - 2][column + 2] == 1) {
+                        thiefRow = row - 2;
+                        thiefColumn = column + 2;
+                        police.iSawThief(thiefRow, thiefColumn, p, n);
+                        break;
+                    }
+                    if (gameTable[row + 2][column - 2] == 1) {
+                        thiefRow = row + 2;
+                        thiefColumn = column - 2;
+                        police.iSawThief(thiefRow, thiefColumn, p, n);
+                        break;
+                    }
+                    if (gameTable[row + 1][column - 1] == 1) {
+                        thiefRow = row - 2;
+                        thiefColumn = column + 2;
+                        police.iSawThief(thiefRow, thiefColumn, p, n);
+                        break;
+                    }
+                    if (gameTable[row + 1][column + 1] == 1) {
+                        thiefRow = row + 1;
+                        thiefColumn = column + 1;
+                        police.iSawThief(thiefRow, thiefColumn, p, n);
+                        break;
+                    }
+                    if (gameTable[row + 2][column + 2] == 1) {
+                        thiefRow = row + 2;
+                        thiefColumn = column + 2;
+                        police.iSawThief(thiefRow, thiefColumn, p, n);
+                        break;
+                    }
+
+
+                }
+
 
             }
-            if (row == 0 && column == police.getTotalColumn() - 1) {
-                result = 1;
-                if (gameTable[row][column - 1] == 1) {
-                    thiefRow = row;
-                    thiefColumn = column - 1;
-                    police.iSawThief(thiefRow, thiefColumn, p, n);
-                    break;
-
-                }
-                if (gameTable[row][column - 2] == 1) {
-                    thiefRow = row;
-                    thiefColumn = column - 2;
-                    police.iSawThief(thiefRow, thiefColumn, p, n);
-                    break;
-                }
-                if (gameTable[row + 1][column - 1] == 1) {
-                    thiefRow = row + 1;
-                    thiefColumn = column - 1;
-                    police.iSawThief(thiefRow, thiefColumn, p, n);
-                    break;
-                }
-                if (gameTable[row + 2][column - 2] == 1) {
-                    thiefRow = row + 2;
-                    thiefColumn = column - 2;
-                    police.iSawThief(thiefRow, thiefColumn, p, n);
-                    break;
-                }
-                if (gameTable[row + 1][column] == 1) {
-                    thiefRow = row + 1;
-                    thiefColumn = column;
-                    police.iSawThief(thiefRow, thiefColumn, p, n);
-                    break;
-                }
-                if (gameTable[row + 2][column] == 1) {
-                    thiefRow = row + 2;
-                    thiefColumn = column;
-                    police.iSawThief(thiefRow, thiefColumn, p, n);
-                    break;
-                }
-
-            }
-            if (row == police.getTotalRow() - 1 && column == police.getTotalColumn() - 1) {
-                result = 1;
-                if (gameTable[row][column - 1] == 1) {
-                    thiefRow = row;
-                    thiefColumn = column - 1;
-                    police.iSawThief(thiefRow, thiefColumn, p, n);
-                    break;
-
-                }
-                if (gameTable[row][column - 2] == 1) {
-                    thiefRow = row;
-                    thiefColumn = column - 2;
-                    police.iSawThief(thiefRow, thiefColumn, p, n);
-                    break;
-                }
-                if (gameTable[row - 1][column - 1] == 1) {
-                    thiefRow = row - 1;
-                    thiefColumn = column - 1;
-                    police.iSawThief(thiefRow, thiefColumn, p, n);
-                    break;
-                }
-                if (gameTable[row - 2][column - 2] == 1) {
-                    thiefRow = row - 2;
-                    thiefColumn = column - 2;
-                    police.iSawThief(thiefRow, thiefColumn, p, n);
-                    break;
-                }
-                if (gameTable[row - 1][column] == 1) {
-                    thiefRow = row - 1;
-                    thiefColumn = column;
-                    police.iSawThief(thiefRow, thiefColumn, p, n);
-                    break;
-                }
-                if (gameTable[row - 2][column] == 1) {
-                    thiefRow = row + 2;
-                    thiefColumn = column;
-                    police.iSawThief(thiefRow, thiefColumn, p, n);
-                    break;
-                }
-
-            }
-            if (row == police.getTotalRow() - 1 && column == 0) {
-                result = 1;
-                if (gameTable[row - 1][column] == 1) {
-                    thiefRow = row - 1;
-                    thiefColumn = column;
-                    police.iSawThief(thiefRow, thiefColumn, p, n);
-                    break;
-
-                }
-                if (gameTable[row - 2][column] == 1) {
-                    thiefRow = row - 2;
-                    thiefColumn = column;
-                    police.iSawThief(thiefRow, thiefColumn, p, n);
-                    break;
-                }
-                if (gameTable[row - 1][column + 1] == 1) {
-                    thiefRow = row + 1;
-                    thiefColumn = column - 1;
-                    police.iSawThief(thiefRow, thiefColumn, p, n);
-                    break;
-                }
-                if (gameTable[row - 2][column + 2] == 1) {
-                    thiefRow = row - 2;
-                    thiefColumn = column + 2;
-                    police.iSawThief(thiefRow, thiefColumn, p, n);
-                    break;
-                }
-                if (gameTable[row][column + 1] == 1) {
-                    thiefRow = row;
-                    thiefColumn = column + 1;
-                    police.iSawThief(thiefRow, thiefColumn, p, n);
-                    break;
-                }
-                if (gameTable[row][column + 2] == 1) {
-                    thiefRow = row;
-                    thiefColumn = column + 2;
-                    police.iSawThief(thiefRow, thiefColumn, p, n);
-                    break;
-                }
-
-            }
-            if (row == 0 && column == 1) {
-                result = 1;
-                if (gameTable[row][column - 1] == 1) {
-                    thiefRow = row;
-                    thiefColumn = column - 1;
-                    police.iSawThief(thiefRow, thiefColumn, p, n);
-                    break;
-
-                }
-                if (gameTable[row][column + 1] == 1) {
-                    thiefRow = row;
-                    thiefColumn = column + 1;
-                    police.iSawThief(thiefRow, thiefColumn, p, n);
-                    break;
-
-                }
-                if (gameTable[row][column + 2] == 1) {
-                    thiefRow = row;
-                    thiefColumn = column + 2;
-                    police.iSawThief(thiefRow, thiefColumn, p, n);
-                    break;
-                }
-                if (gameTable[row + 1][column - 1] == 1) {
-                    thiefRow = row + 1;
-                    thiefColumn = column - 1;
-                    police.iSawThief(thiefRow, thiefColumn, p, n);
-                    break;
-                }
-                if (gameTable[row + 1][column + 1] == 1) {
-                    thiefRow = row + 1;
-                    thiefColumn = column + 1;
-                    police.iSawThief(thiefRow, thiefColumn, p, n);
-                    break;
-                }
-                if (gameTable[row + 2][column + 2] == 1) {
-                    thiefRow = row + 2;
-                    thiefColumn = column + 2;
-                    police.iSawThief(thiefRow, thiefColumn, p, n);
-                    break;
-                }
-                if (gameTable[row + 1][column] == 1) {
-                    thiefRow = row + 1;
-                    thiefColumn = column;
-                    police.iSawThief(thiefRow, thiefColumn, p, n);
-                    break;
-                }
-                if (gameTable[row + 2][column] == 1) {
-                    thiefRow = row + 2;
-                    thiefColumn = column;
-                    police.iSawThief(thiefRow, thiefColumn, p, n);
-                    break;
-                }
-
-
-            }
-            if (row == 0 && column == police.getTotalColumn() - 2) {
-                result = 1;
-                if (gameTable[row][column + 1] == 1) {
-                    thiefRow = row;
-                    thiefColumn = column + 1;
-                    police.iSawThief(thiefRow, thiefColumn, p, n);
-                    break;
-
-                }
-                if (gameTable[row][column - 1] == 1) {
-                    thiefRow = row;
-                    thiefColumn = column - 1;
-                    police.iSawThief(thiefRow, thiefColumn, p, n);
-                    break;
-
-                }
-                if (gameTable[row][column - 2] == 1) {
-                    thiefRow = row;
-                    thiefColumn = column - 2;
-                    police.iSawThief(thiefRow, thiefColumn, p, n);
-                    break;
-                }
-                if (gameTable[row + 1][column + 1] == 1) {
-                    thiefRow = row + 1;
-                    thiefColumn = column + 1;
-                    police.iSawThief(thiefRow, thiefColumn, p, n);
-                    break;
-                }
-                if (gameTable[row + 1][column] == 1) {
-                    thiefRow = row + 1;
-                    thiefColumn = column;
-                    police.iSawThief(thiefRow, thiefColumn, p, n);
-                    break;
-                }
-                if (gameTable[row + 2][column] == 1) {
-                    thiefRow = row + 2;
-                    thiefColumn = column;
-                    police.iSawThief(thiefRow, thiefColumn, p, n);
-                    break;
-                }
-                if (gameTable[row + 1][column - 1] == 1) {
-                    thiefRow = row + 1;
-                    thiefColumn = column - 1;
-                    police.iSawThief(thiefRow, thiefColumn, p, n);
-                    break;
-                }
-                if (gameTable[row + 2][column - 2] == 1) {
-                    thiefRow = row + 2;
-                    thiefColumn = column - 2;
-                    police.iSawThief(thiefRow, thiefColumn, p, n);
-                    break;
-                }
-
-
-            }
-            if (row == police.getTotalRow() - 1 && column == police.getTotalColumn() - 2) {
-                result = 1;
-                if (gameTable[row][column + 1] == 1) {
-                    thiefRow = row;
-                    thiefColumn = column + 1;
-                    police.iSawThief(thiefRow, thiefColumn, p, n);
-                    break;
-
-                }
-                if (gameTable[row][column - 1] == 1) {
-                    thiefRow = row;
-                    thiefColumn = column - 1;
-                    police.iSawThief(thiefRow, thiefColumn, p, n);
-                    break;
-
-                }
-                if (gameTable[row][column - 2] == 1) {
-                    thiefRow = row;
-                    thiefColumn = column - 2;
-                    police.iSawThief(thiefRow, thiefColumn, p, n);
-                    break;
-                }
-                if (gameTable[row - 1][column + 1] == 1) {
-                    thiefRow = row - 1;
-                    thiefColumn = column + 1;
-                    police.iSawThief(thiefRow, thiefColumn, p, n);
-                    break;
-                }
-                if (gameTable[row - 1][column] == 1) {
-                    thiefRow = row - 1;
-                    thiefColumn = column;
-                    police.iSawThief(thiefRow, thiefColumn, p, n);
-                    break;
-                }
-                if (gameTable[row - 2][column] == 1) {
-                    thiefRow = row - 2;
-                    thiefColumn = column;
-                    police.iSawThief(thiefRow, thiefColumn, p, n);
-                    break;
-                }
-                if (gameTable[row - 1][column - 1] == 1) {
-                    thiefRow = row - 1;
-                    thiefColumn = column - 1;
-                    police.iSawThief(thiefRow, thiefColumn, p, n);
-                    break;
-                }
-                if (gameTable[row - 2][column - 2] == 1) {
-                    thiefRow = row - 2;
-                    thiefColumn = column - 2;
-                    police.iSawThief(thiefRow, thiefColumn, p, n);
-                    break;
-                }
-
-
-            }
-            if (row == police.getTotalRow() - 1 && column == 1) {
-                result = 1;
-                if (gameTable[row][column - 1] == 1) {
-                    thiefRow = row;
-                    thiefColumn = column - 1;
-                    police.iSawThief(thiefRow, thiefColumn, p, n);
-                    break;
-
-                }
-                if (gameTable[row - 1][column - 1] == 1) {
-                    thiefRow = row - 1;
-                    thiefColumn = column - 1;
-                    police.iSawThief(thiefRow, thiefColumn, p, n);
-                    break;
-
-                }
-                if (gameTable[row - 1][column] == 1) {
-                    thiefRow = row - 1;
-                    thiefColumn = column;
-                    police.iSawThief(thiefRow, thiefColumn, p, n);
-                    break;
-                }
-                if (gameTable[row - 2][column] == 1) {
-                    thiefRow = row - 2;
-                    thiefColumn = column;
-                    police.iSawThief(thiefRow, thiefColumn, p, n);
-                    break;
-                }
-                if (gameTable[row - 1][column + 1] == 1) {
-                    thiefRow = row - 1;
-                    thiefColumn = column + 1;
-                    police.iSawThief(thiefRow, thiefColumn, p, n);
-                    break;
-                }
-                if (gameTable[row - 2][column + 2] == 1) {
-                    thiefRow = row - 2;
-                    thiefColumn = column + 2;
-                    police.iSawThief(thiefRow, thiefColumn, p, n);
-                    break;
-                }
-                if (gameTable[row][column + 1] == 1) {
-                    thiefRow = row;
-                    thiefColumn = column + 1;
-                    police.iSawThief(thiefRow, thiefColumn, p, n);
-                    break;
-                }
-                if (gameTable[row][column + 2] == 1) {
-                    thiefRow = row;
-                    thiefColumn = column + 2;
-                    police.iSawThief(thiefRow, thiefColumn, p, n);
-                    break;
-                }
-
-
-            }
-            if (row == 0 && column > 1 && column < police.getTotalColumn() - 2) {
-                result = 1;
-                if (gameTable[row][column - 1] == 1) {
-                    thiefRow = row;
-                    thiefColumn = column - 1;
-                    police.iSawThief(thiefRow, thiefColumn, p, n);
-                    break;
-
-                }
-                if (gameTable[row][column - 2] == 1) {
-                    thiefRow = row;
-                    thiefColumn = column - 2;
-                    police.iSawThief(thiefRow, thiefColumn, p, n);
-                    break;
-
-                }
-                if (gameTable[row + 1][column - 1] == 1) {
-                    thiefRow = row + 1;
-                    thiefColumn = column - 1;
-                    police.iSawThief(thiefRow, thiefColumn, p, n);
-                    break;
-                }
-                if (gameTable[row + 2][column - 2] == 1) {
-                    thiefRow = row + 2;
-                    thiefColumn = column - 2;
-                    police.iSawThief(thiefRow, thiefColumn, p, n);
-                    break;
-                }
-                if (gameTable[row + 1][column] == 1) {
-                    thiefRow = row + 1;
-                    thiefColumn = column;
-                    police.iSawThief(thiefRow, thiefColumn, p, n);
-                    break;
-                }
-                if (gameTable[row + 2][column] == 1) {
-                    thiefRow = row + 2;
-                    thiefColumn = column;
-                    police.iSawThief(thiefRow, thiefColumn, p, n);
-                    break;
-                }
-                if (gameTable[row + 1][column + 1] == 1) {
-                    thiefRow = row + 1;
-                    thiefColumn = column + 1;
-                    police.iSawThief(thiefRow, thiefColumn, p, n);
-                    break;
-                }
-                if (gameTable[row + 2][column + 2] == 1) {
-                    thiefRow = row + 2;
-                    thiefColumn = column + 2;
-                    police.iSawThief(thiefRow, thiefColumn, p, n);
-                    break;
-                }
-                if (gameTable[row][column + 1] == 1) {
-                    thiefRow = row;
-                    thiefColumn = column + 1;
-                    police.iSawThief(thiefRow, thiefColumn, p, n);
-                    break;
-                }
-                if (gameTable[row][column + 2] == 1) {
-                    thiefRow = row;
-                    thiefColumn = column + 2;
-                    police.iSawThief(thiefRow, thiefColumn, p, n);
-                    break;
-                }
-
-            }
-            if (column == 0 && row > 1 && row < police.getTotalRow() - 2) {
-                result = 1;
-                if (gameTable[row - 1][column] == 1) {
-                    thiefRow = row - 1;
-                    thiefColumn = column;
-                    police.iSawThief(thiefRow, thiefColumn, p, n);
-                    break;
-
-                }
-                if (gameTable[row - 2][column] == 1) {
-                    thiefRow = row - 2;
-                    thiefColumn = column;
-                    police.iSawThief(thiefRow, thiefColumn, p, n);
-                    break;
-
-                }
-                if (gameTable[row - 1][column + 1] == 1) {
-                    thiefRow = row - 1;
-                    thiefColumn = column + 1;
-                    police.iSawThief(thiefRow, thiefColumn, p, n);
-                    break;
-                }
-                if (gameTable[row - 2][column + 2] == 1) {
-                    thiefRow = row - 2;
-                    thiefColumn = column + 2;
-                    police.iSawThief(thiefRow, thiefColumn, p, n);
-                    break;
-                }
-                if (gameTable[row][column + 1] == 1) {
-                    thiefRow = row;
-                    thiefColumn = column + 1;
-                    police.iSawThief(thiefRow, thiefColumn, p, n);
-                    break;
-                }
-                if (gameTable[row][column + 2] == 1) {
-                    thiefRow = row;
-                    thiefColumn = column + 2;
-                    police.iSawThief(thiefRow, thiefColumn, p, n);
-                    break;
-                }
-                if (gameTable[row + 1][column + 1] == 1) {
-                    thiefRow = row + 1;
-                    thiefColumn = column + 1;
-                    police.iSawThief(thiefRow, thiefColumn, p, n);
-                    break;
-                }
-                if (gameTable[row + 2][column + 2] == 1) {
-                    thiefRow = row + 2;
-                    thiefColumn = column + 2;
-                    police.iSawThief(thiefRow, thiefColumn, p, n);
-                    break;
-                }
-                if (gameTable[row + 1][column] == 1) {
-                    thiefRow = row + 1;
-                    thiefColumn = column;
-                    police.iSawThief(thiefRow, thiefColumn, p, n);
-                    break;
-                }
-                if (gameTable[row + 2][column] == 1) {
-                    thiefRow = row + 2;
-                    thiefColumn = column;
-                    police.iSawThief(thiefRow, thiefColumn, p, n);
-                    break;
-                }
-
-            }
-            if (row == police.getTotalRow() - 1 && column > 1 && column < police.getTotalColumn() - 2) {
-                result = 1;
-                if (gameTable[row][column - 1] == 1) {
-                    thiefRow = row;
-                    thiefColumn = column - 1;
-                    police.iSawThief(thiefRow, thiefColumn, p, n);
-                    break;
-
-                }
-                if (gameTable[row][column - 2] == 1) {
-                    thiefRow = row;
-                    thiefColumn = column - 2;
-                    police.iSawThief(thiefRow, thiefColumn, p, n);
-                    break;
-
-                }
-                if (gameTable[row - 1][column] == 1) {
-                    thiefRow = row - 1;
-                    thiefColumn = column;
-                    police.iSawThief(thiefRow, thiefColumn, p, n);
-                    break;
-                }
-                if (gameTable[row - 2][column] == 1) {
-                    thiefRow = row - 2;
-                    thiefColumn = column;
-                    police.iSawThief(thiefRow, thiefColumn, p, n);
-                    break;
-                }
-                if (gameTable[row - 1][column - 1] == 1) {
-                    thiefRow = row - 1;
-                    thiefColumn = column - 1;
-                    police.iSawThief(thiefRow, thiefColumn, p, n);
-                    break;
-                }
-                if (gameTable[row - 2][column - 2] == 1) {
-                    thiefRow = row - 2;
-                    thiefColumn = column - 2;
-                    police.iSawThief(thiefRow, thiefColumn, p, n);
-                    break;
-                }
-                if (gameTable[row - 1][column + 1] == 1) {
-                    thiefRow = row - 1;
-                    thiefColumn = column + 1;
-                    police.iSawThief(thiefRow, thiefColumn, p, n);
-                    break;
-                }
-                if (gameTable[row - 2][column + 2] == 1) {
-                    thiefRow = row - 2;
-                    thiefColumn = column + 2;
-                    police.iSawThief(thiefRow, thiefColumn, p, n);
-                    break;
-                }
-                if (gameTable[row][column + 1] == 1) {
-                    thiefRow = row;
-                    thiefColumn = column + 1;
-                    police.iSawThief(thiefRow, thiefColumn, p, n);
-                    break;
-                }
-                if (gameTable[row][column + 2] == 1) {
-                    thiefRow = row;
-                    thiefColumn = column + 2;
-                    police.iSawThief(thiefRow, thiefColumn, p, n);
-                    break;
-                }
-
-            }
-            if (column == police.getTotalColumn() - 1 && row > 1 && row < police.getTotalRow() - 2) {
-                result = 1;
-                if (gameTable[row - 1][column] == 1) {
-                    thiefRow = row - 1;
-                    thiefColumn = column;
-                    police.iSawThief(thiefRow, thiefColumn, p, n);
-                    break;
-
-                }
-                if (gameTable[row - 2][column] == 1) {
-                    thiefRow = row - 2;
-                    thiefColumn = column;
-                    police.iSawThief(thiefRow, thiefColumn, p, n);
-                    break;
-
-                }
-                if (gameTable[row - 1][column - 1] == 1) {
-                    thiefRow = row - 1;
-                    thiefColumn = column - 1;
-                    police.iSawThief(thiefRow, thiefColumn, p, n);
-                    break;
-                }
-                if (gameTable[row - 2][column - 2] == 1) {
-                    thiefRow = row - 2;
-                    thiefColumn = column - 2;
-                    police.iSawThief(thiefRow, thiefColumn, p, n);
-                    break;
-                }
-                if (gameTable[row][column - 1] == 1) {
-                    thiefRow = row;
-                    thiefColumn = column - 1;
-                    police.iSawThief(thiefRow, thiefColumn, p, n);
-                    break;
-                }
-                if (gameTable[row][column - 2] == 1) {
-                    thiefRow = row;
-                    thiefColumn = column - 2;
-                    police.iSawThief(thiefRow, thiefColumn, p, n);
-                    break;
-                }
-                if (gameTable[row + 1][column - 1] == 1) {
-                    thiefRow = row + 1;
-                    thiefColumn = column - 1;
-                    police.iSawThief(thiefRow, thiefColumn, p, n);
-                    break;
-                }
-                if (gameTable[row + 2][column - 2] == 1) {
-                    thiefRow = row + 2;
-                    thiefColumn = column - 2;
-                    police.iSawThief(thiefRow, thiefColumn, p, n);
-                    break;
-                }
-                if (gameTable[row + 1][column] == 1) {
-                    thiefRow = row + 1;
-                    thiefColumn = column;
-                    police.iSawThief(thiefRow, thiefColumn, p, n);
-                    break;
-                }
-                if (gameTable[row + 2][column] == 1) {
-                    thiefRow = row + 2;
-                    thiefColumn = column;
-                    police.iSawThief(thiefRow, thiefColumn, p, n);
-                    break;
-                }
-
-            }
-            if (row == 1 && column == 1) {
-                result = 1;
-                if (gameTable[row - 1][column] == 1) {
-                    thiefRow = row - 1;
-                    thiefColumn = column;
-                    police.iSawThief(thiefRow, thiefColumn, p, n);
-                    break;
-
-                }
-                if (gameTable[row + 1][column] == 1) {
-                    thiefRow = row + 1;
-                    thiefColumn = column;
-                    police.iSawThief(thiefRow, thiefColumn, p, n);
-                    break;
-
-                }
-                if (gameTable[row + 2][column] == 1) {
-                    thiefRow = row + 2;
-                    thiefColumn = column;
-                    police.iSawThief(thiefRow, thiefColumn, p, n);
-                    break;
-                }
-                if (gameTable[row - 1][column - 1] == 1) {
-                    thiefRow = row - 1;
-                    thiefColumn = column - 1;
-                    police.iSawThief(thiefRow, thiefColumn, p, n);
-                    break;
-                }
-                if (gameTable[row][column - 1] == 1) {
-                    thiefRow = row;
-                    thiefColumn = column - 1;
-                    police.iSawThief(thiefRow, thiefColumn, p, n);
-                    break;
-                }
-                if (gameTable[row][column + 1] == 1) {
-                    thiefRow = row;
-                    thiefColumn = column + 1;
-                    police.iSawThief(thiefRow, thiefColumn, p, n);
-                    break;
-                }
-                if (gameTable[row - 1][column + 1] == 1) {
-                    thiefRow = row - 1;
-                    thiefColumn = column + 1;
-                    police.iSawThief(thiefRow, thiefColumn, p, n);
-                    break;
-                }
-                if (gameTable[row][column + 2] == 1) {
-                    thiefRow = row;
-                    thiefColumn = column + 2;
-                    police.iSawThief(thiefRow, thiefColumn, p, n);
-                    break;
-                }
-                if (gameTable[row + 1][column - 1] == 1) {
-                    thiefRow = row + 1;
-                    thiefColumn = column - 1;
-                    police.iSawThief(thiefRow, thiefColumn, p, n);
-                    break;
-                }
-                if (gameTable[row + 1][column + 1] == 1) {
-                    thiefRow = row + 2;
-                    thiefColumn = column;
-                    police.iSawThief(thiefRow, thiefColumn, p, n);
-                    break;
-                }
-                if (gameTable[row + 2][column + 2] == 1) {
-                    thiefRow = row + 2;
-                    thiefColumn = column + 2;
-                    police.iSawThief(thiefRow, thiefColumn, p, n);
-                    break;
-                }
-
-            }
-            if (row == 1 && column == police.getTotalColumn() - 2) {
-                result = 1;
-                if (gameTable[row - 1][column] == 1) {
-                    thiefRow = row - 1;
-                    thiefColumn = column;
-                    police.iSawThief(thiefRow, thiefColumn, p, n);
-                    break;
-
-                }
-                if (gameTable[row + 1][column] == 1) {
-                    thiefRow = row + 1;
-                    thiefColumn = column;
-                    police.iSawThief(thiefRow, thiefColumn, p, n);
-                    break;
-
-                }
-                if (gameTable[row + 2][column] == 1) {
-                    thiefRow = row + 2;
-                    thiefColumn = column;
-                    police.iSawThief(thiefRow, thiefColumn, p, n);
-                    break;
-                }
-                if (gameTable[row - 1][column - 1] == 1) {
-                    thiefRow = row - 1;
-                    thiefColumn = column - 1;
-                    police.iSawThief(thiefRow, thiefColumn, p, n);
-                    break;
-                }
-                if (gameTable[row][column - 1] == 1) {
-                    thiefRow = row;
-                    thiefColumn = column - 1;
-                    police.iSawThief(thiefRow, thiefColumn, p, n);
-                    break;
-                }
-                if (gameTable[row][column + 1] == 1) {
-                    thiefRow = row;
-                    thiefColumn = column + 1;
-                    police.iSawThief(thiefRow, thiefColumn, p, n);
-                    break;
-                }
-                if (gameTable[row - 1][column + 1] == 1) {
-                    thiefRow = row - 1;
-                    thiefColumn = column + 1;
-                    police.iSawThief(thiefRow, thiefColumn, p, n);
-                    break;
-                }
-                if (gameTable[row + 1][column + 1] == 1) {
-                    thiefRow = row + 1;
-                    thiefColumn = column + 1;
-                    police.iSawThief(thiefRow, thiefColumn, p, n);
-                    break;
-                }
-                if (gameTable[row + 1][column - 1] == 1) {
-                    thiefRow = row + 1;
-                    thiefColumn = column - 1;
-                    police.iSawThief(thiefRow, thiefColumn, p, n);
-                    break;
-                }
-                if (gameTable[row][column - 2] == 1) {
-                    thiefRow = row;
-                    thiefColumn = column - 2;
-                    police.iSawThief(thiefRow, thiefColumn, p, n);
-                    break;
-                }
-                if (gameTable[row + 2][column - 2] == 1) {
-                    thiefRow = row + 2;
-                    thiefColumn = column - 2;
-                    police.iSawThief(thiefRow, thiefColumn, p, n);
-                    break;
-                }
-
-            }
-            if (row == police.getTotalRow() - 2 && column == 1) {
-                result = 1;
-                if (gameTable[row - 1][column] == 1) {
-                    thiefRow = row - 1;
-                    thiefColumn = column;
-                    police.iSawThief(thiefRow, thiefColumn, p, n);
-                    break;
-
-                }
-                if (gameTable[row + 1][column] == 1) {
-                    thiefRow = row + 1;
-                    thiefColumn = column;
-                    police.iSawThief(thiefRow, thiefColumn, p, n);
-                    break;
-
-                }
-                if (gameTable[row - 2][column] == 1) {
-                    thiefRow = row - 2;
-                    thiefColumn = column;
-                    police.iSawThief(thiefRow, thiefColumn, p, n);
-                    break;
-                }
-                if (gameTable[row - 1][column - 1] == 1) {
-                    thiefRow = row - 1;
-                    thiefColumn = column - 1;
-                    police.iSawThief(thiefRow, thiefColumn, p, n);
-                    break;
-                }
-                if (gameTable[row][column - 1] == 1) {
-                    thiefRow = row;
-                    thiefColumn = column - 1;
-                    police.iSawThief(thiefRow, thiefColumn, p, n);
-                    break;
-                }
-                if (gameTable[row][column + 1] == 1) {
-                    thiefRow = row;
-                    thiefColumn = column + 1;
-                    police.iSawThief(thiefRow, thiefColumn, p, n);
-                    break;
-                }
-                if (gameTable[row - 1][column + 1] == 1) {
-                    thiefRow = row - 1;
-                    thiefColumn = column + 1;
-                    police.iSawThief(thiefRow, thiefColumn, p, n);
-                    break;
-                }
-                if (gameTable[row + 1][column + 1] == 1) {
-                    thiefRow = row + 1;
-                    thiefColumn = column + 1;
-                    police.iSawThief(thiefRow, thiefColumn, p, n);
-                    break;
-                }
-                if (gameTable[row + 1][column - 1] == 1) {
-                    thiefRow = row + 1;
-                    thiefColumn = column - 1;
-                    police.iSawThief(thiefRow, thiefColumn, p, n);
-                    break;
-                }
-                if (gameTable[row][column + 2] == 1) {
-                    thiefRow = row;
-                    thiefColumn = column + 2;
-                    police.iSawThief(thiefRow, thiefColumn, p, n);
-                    break;
-                }
-                if (gameTable[row - 2][column + 2] == 1) {
-                    thiefRow = row - 2;
-                    thiefColumn = column + 2;
-                    police.iSawThief(thiefRow, thiefColumn, p, n);
-                    break;
-                }
-
-            }
-            if (row == police.getTotalRow() - 2 && column == police.getTotalColumn() - 2) {
-                result = 1;
-                if (gameTable[row - 1][column] == 1) {
-                    thiefRow = row - 1;
-                    thiefColumn = column;
-                    police.iSawThief(thiefRow, thiefColumn, p, n);
-                    break;
-
-                }
-                if (gameTable[row + 1][column] == 1) {
-                    thiefRow = row + 1;
-                    thiefColumn = column;
-                    police.iSawThief(thiefRow, thiefColumn, p, n);
-                    break;
-
-                }
-                if (gameTable[row + 2][column] == 1) {
-                    thiefRow = row + 2;
-                    thiefColumn = column;
-                    police.iSawThief(thiefRow, thiefColumn, p, n);
-                    break;
-                }
-                if (gameTable[row - 1][column - 1] == 1) {
-                    thiefRow = row - 1;
-                    thiefColumn = column - 1;
-                    police.iSawThief(thiefRow, thiefColumn, p, n);
-                    break;
-                }
-                if (gameTable[row][column - 1] == 1) {
-                    thiefRow = row;
-                    thiefColumn = column - 1;
-                    police.iSawThief(thiefRow, thiefColumn, p, n);
-                    break;
-                }
-                if (gameTable[row][column + 1] == 1) {
-                    thiefRow = row;
-                    thiefColumn = column + 1;
-                    police.iSawThief(thiefRow, thiefColumn, p, n);
-                    break;
-                }
-                if (gameTable[row - 1][column + 1] == 1) {
-                    thiefRow = row - 1;
-                    thiefColumn = column + 1;
-                    police.iSawThief(thiefRow, thiefColumn, p, n);
-                    break;
-                }
-                if (gameTable[row + 1][column + 1] == 1) {
-                    thiefRow = row + 1;
-                    thiefColumn = column + 1;
-                    police.iSawThief(thiefRow, thiefColumn, p, n);
-                    break;
-                }
-                if (gameTable[row + 1][column - 1] == 1) {
-                    thiefRow = row + 1;
-                    thiefColumn = column - 1;
-                    police.iSawThief(thiefRow, thiefColumn, p, n);
-                    break;
-                }
-                if (gameTable[row][column - 2] == 1) {
-                    thiefRow = row;
-                    thiefColumn = column - 2;
-                    police.iSawThief(thiefRow, thiefColumn, p, n);
-                    break;
-                }
-                if (gameTable[row - 2][column - 2] == 1) {
-                    thiefRow = row - 2;
-                    thiefColumn = column - 2;
-                    police.iSawThief(thiefRow, thiefColumn, p, n);
-                    break;
-                }
-
-            }
-            if (column == 1 && row > 1 && row < police.getTotalRow() - 2) {
-                result = 1;
-                if (gameTable[row - 1][column] == 1) {
-                    thiefRow = row - 1;
-                    thiefColumn = column;
-                    police.iSawThief(thiefRow, thiefColumn, p, n);
-                    break;
-
-                }
-                if (gameTable[row + 1][column] == 1) {
-                    thiefRow = row + 1;
-                    thiefColumn = column;
-                    police.iSawThief(thiefRow, thiefColumn, p, n);
-                    break;
-
-                }
-                if (gameTable[row + 2][column] == 1) {
-                    thiefRow = row + 2;
-                    thiefColumn = column;
-                    police.iSawThief(thiefRow, thiefColumn, p, n);
-                    break;
-                }
-                if (gameTable[row - 1][column - 1] == 1) {
-                    thiefRow = row - 1;
-                    thiefColumn = column - 1;
-                    police.iSawThief(thiefRow, thiefColumn, p, n);
-                    break;
-                }
-                if (gameTable[row][column - 1] == 1) {
-                    thiefRow = row;
-                    thiefColumn = column - 1;
-                    police.iSawThief(thiefRow, thiefColumn, p, n);
-                    break;
-                }
-                if (gameTable[row][column + 1] == 1) {
-                    thiefRow = row;
-                    thiefColumn = column + 1;
-                    police.iSawThief(thiefRow, thiefColumn, p, n);
-                    break;
-                }
-                if (gameTable[row - 1][column + 1] == 1) {
-                    thiefRow = row - 1;
-                    thiefColumn = column + 1;
-                    police.iSawThief(thiefRow, thiefColumn, p, n);
-                    break;
-                }
-                if (gameTable[row + 1][column + 1] == 1) {
-                    thiefRow = row + 1;
-                    thiefColumn = column + 1;
-                    police.iSawThief(thiefRow, thiefColumn, p, n);
-                    break;
-                }
-                if (gameTable[row + 1][column - 1] == 1) {
-                    thiefRow = row + 1;
-                    thiefColumn = column - 1;
-                    police.iSawThief(thiefRow, thiefColumn, p, n);
-                    break;
-                }
-                if (gameTable[row - 2][column + 2] == 1) {
-                    thiefRow = row - 2;
-                    thiefColumn = column + 2;
-                    police.iSawThief(thiefRow, thiefColumn, p, n);
-                    break;
-                }
-                if (gameTable[row + 2][column + 2] == 1) {
-                    thiefRow = row + 2;
-                    thiefColumn = column + 2;
-                    police.iSawThief(thiefRow, thiefColumn, p, n);
-                    break;
-                }
-                if (gameTable[row - 2][column] == 1) {
-                    thiefRow = row - 2;
-                    thiefColumn = column;
-                    police.iSawThief(thiefRow, thiefColumn, p, n);
-                    break;
-                }
-                if (gameTable[row][column + 2] == 1) {
-                    thiefRow = row;
-                    thiefColumn = column + 2;
-                    police.iSawThief(thiefRow, thiefColumn, p, n);
-                    break;
-                }
-            }
-            if (row == 1 && column > 1 && column < police.getTotalColumn() - 2) {
-                result = 1;
-                if (gameTable[row - 1][column] == 1) {
-                    thiefRow = row - 1;
-                    thiefColumn = column;
-                    police.iSawThief(thiefRow, thiefColumn, p, n);
-                    break;
-
-                }
-                if (gameTable[row + 1][column] == 1) {
-                    thiefRow = row + 1;
-                    thiefColumn = column;
-                    police.iSawThief(thiefRow, thiefColumn, p, n);
-                    break;
-
-                }
-                if (gameTable[row + 2][column] == 1) {
-                    thiefRow = row + 2;
-                    thiefColumn = column;
-                    police.iSawThief(thiefRow, thiefColumn, p, n);
-                    break;
-                }
-                if (gameTable[row - 1][column - 1] == 1) {
-                    thiefRow = row - 1;
-                    thiefColumn = column - 1;
-                    police.iSawThief(thiefRow, thiefColumn, p, n);
-                    break;
-                }
-                if (gameTable[row][column - 1] == 1) {
-                    thiefRow = row;
-                    thiefColumn = column - 1;
-                    police.iSawThief(thiefRow, thiefColumn, p, n);
-                    break;
-                }
-                if (gameTable[row][column + 1] == 1) {
-                    thiefRow = row;
-                    thiefColumn = column + 1;
-                    police.iSawThief(thiefRow, thiefColumn, p, n);
-                    break;
-                }
-                if (gameTable[row - 1][column + 1] == 1) {
-                    thiefRow = row - 1;
-                    thiefColumn = column + 1;
-                    police.iSawThief(thiefRow, thiefColumn, p, n);
-                    break;
-                }
-                if (gameTable[row + 1][column + 1] == 1) {
-                    thiefRow = row + 1;
-                    thiefColumn = column + 1;
-                    police.iSawThief(thiefRow, thiefColumn, p, n);
-                    break;
-                }
-                if (gameTable[row + 1][column - 1] == 1) {
-                    thiefRow = row + 1;
-                    thiefColumn = column - 1;
-                    police.iSawThief(thiefRow, thiefColumn, p, n);
-                    break;
-                }
-                if (gameTable[row][column + 2] == 1) {
-                    thiefRow = row;
-                    thiefColumn = column + 2;
-                    police.iSawThief(thiefRow, thiefColumn, p, n);
-                    break;
-                }
-                if (gameTable[row][column - 2] == 1) {
-                    thiefRow = row;
-                    thiefColumn = column - 2;
-                    police.iSawThief(thiefRow, thiefColumn, p, n);
-                    break;
-                }
-                if (gameTable[row + 2][column - 2] == 1) {
-                    thiefRow = row + 2;
-                    thiefColumn = column - 2;
-                    police.iSawThief(thiefRow, thiefColumn, p, n);
-                    break;
-                }
-                if (gameTable[row + 2][column + 2] == 1) {
-                    thiefRow = row + 2;
-                    thiefColumn = column + 2;
-                    police.iSawThief(thiefRow, thiefColumn, p, n);
-                    break;
-                }
-            }
-            if (column == police.getTotalColumn() - 2 && row > 1 && row < police.getTotalRow() - 2) {
-                result = 1;
-                if (gameTable[row - 1][column] == 1) {
-                    thiefRow = row - 1;
-                    thiefColumn = column;
-                    police.iSawThief(thiefRow, thiefColumn, p, n);
-                    break;
-
-                }
-                if (gameTable[row + 1][column] == 1) {
-                    thiefRow = row + 1;
-                    thiefColumn = column;
-                    police.iSawThief(thiefRow, thiefColumn, p, n);
-                    break;
-
-                }
-                if (gameTable[row + 2][column] == 1) {
-                    thiefRow = row + 2;
-                    thiefColumn = column;
-                    police.iSawThief(thiefRow, thiefColumn, p, n);
-                    break;
-                }
-                if (gameTable[row - 2][column] == 1) {
-                    thiefRow = row - 2;
-                    thiefColumn = column;
-                    police.iSawThief(thiefRow, thiefColumn, p, n);
-                    break;
-                }
-                if (gameTable[row][column - 1] == 1) {
-                    thiefRow = row;
-                    thiefColumn = column - 1;
-                    police.iSawThief(thiefRow, thiefColumn, p, n);
-                    break;
-                }
-                if (gameTable[row][column + 1] == 1) {
-                    thiefRow = row;
-                    thiefColumn = column + 1;
-                    police.iSawThief(thiefRow, thiefColumn, p, n);
-                    break;
-                }
-                if (gameTable[row - 1][column + 1] == 1) {
-                    thiefRow = row - 1;
-                    thiefColumn = column + 1;
-                    police.iSawThief(thiefRow, thiefColumn, p, n);
-                    break;
-                }
-                if (gameTable[row + 1][column + 1] == 1) {
-                    thiefRow = row + 1;
-                    thiefColumn = column + 1;
-                    police.iSawThief(thiefRow, thiefColumn, p, n);
-                    break;
-                }
-                if (gameTable[row + 1][column - 1] == 1) {
-                    thiefRow = row + 1;
-                    thiefColumn = column - 1;
-                    police.iSawThief(thiefRow, thiefColumn, p, n);
-                    break;
-                }
-                if (gameTable[row - 2][column - 2] == 1) {
-                    thiefRow = row - 2;
-                    thiefColumn = column - 2;
-                    police.iSawThief(thiefRow, thiefColumn, p, n);
-                    break;
-                }
-                if (gameTable[row + 2][column - 2] == 1) {
-                    thiefRow = row + 2;
-                    thiefColumn = column - 2;
-                    police.iSawThief(thiefRow, thiefColumn, p, n);
-                    break;
-                }
-                if (gameTable[row][column - 2] == 1) {
-                    thiefRow = row;
-                    thiefColumn = column - 2;
-                    police.iSawThief(thiefRow, thiefColumn, p, n);
-                    break;
-                }
-                if (gameTable[row - 1][column - 1] == 1) {
-                    thiefRow = row - 1;
-                    thiefColumn = column - 1;
-                    police.iSawThief(thiefRow, thiefColumn, p, n);
-                    break;
-                }
-            }
-            if (row == police.getTotalRow() - 2 && column > 1 && column < police.getTotalColumn() - 2) {
-                result = 1;
-                if (gameTable[row - 1][column] == 1) {
-                    thiefRow = row - 1;
-                    thiefColumn = column;
-                    police.iSawThief(thiefRow, thiefColumn, p, n);
-                    break;
-
-                }
-                if (gameTable[row + 1][column] == 1) {
-                    thiefRow = row + 1;
-                    thiefColumn = column;
-                    police.iSawThief(thiefRow, thiefColumn, p, n);
-                    break;
-
-                }
-                if (gameTable[row - 2][column] == 1) {
-                    thiefRow = row - 2;
-                    thiefColumn = column;
-                    police.iSawThief(thiefRow, thiefColumn, p, n);
-                    break;
-                }
-                if (gameTable[row][column + 1] == 1) {
-                    thiefRow = row;
-                    thiefColumn = column + 1;
-                    police.iSawThief(thiefRow, thiefColumn, p, n);
-                    break;
-                }
-                if (gameTable[row][column + 2] == 1) {
-                    thiefRow = row;
-                    thiefColumn = column + 2;
-                    police.iSawThief(thiefRow, thiefColumn, p, n);
-                    break;
-                }
-                if (gameTable[row][column - 1] == 1) {
-                    thiefRow = row;
-                    thiefColumn = column - 1;
-                    police.iSawThief(thiefRow, thiefColumn, p, n);
-                    break;
-                }
-                if (gameTable[row][column - 2] == 1) {
-                    thiefRow = row;
-                    thiefColumn = column - 2;
-                    police.iSawThief(thiefRow, thiefColumn, p, n);
-                    break;
-                }
-                if (gameTable[row + 1][column + 1] == 1) {
-                    thiefRow = row + 1;
-                    thiefColumn = column + 1;
-                    police.iSawThief(thiefRow, thiefColumn, p, n);
-                    break;
-                }
-                if (gameTable[row + 1][column - 1] == 1) {
-                    thiefRow = row + 1;
-                    thiefColumn = column - 1;
-                    police.iSawThief(thiefRow, thiefColumn, p, n);
-                    break;
-                }
-                if (gameTable[row - 2][column - 2] == 1) {
-                    thiefRow = row - 2;
-                    thiefColumn = column - 2;
-                    police.iSawThief(thiefRow, thiefColumn, p, n);
-                    break;
-                }
-                if (gameTable[row - 1][column - 1] == 1) {
-                    thiefRow = row - 1;
-                    thiefColumn = column - 1;
-                    police.iSawThief(thiefRow, thiefColumn, p, n);
-                    break;
-                }
-                if (gameTable[row - 1][column + 1] == 1) {
-                    thiefRow = row - 1;
-                    thiefColumn = column + 1;
-                    police.iSawThief(thiefRow, thiefColumn, p, n);
-                    break;
-                }
-                if (gameTable[row - 2][column + 2] == 1) {
-                    thiefRow = row - 2;
-                    thiefColumn = column + 2;
-                    police.iSawThief(thiefRow, thiefColumn, p, n);
-                    break;
-                }
-            }
-            if (result == 0) {
-                if (gameTable[row][column + 1] == 1) {
-                    thiefRow = row;
-                    thiefColumn = column + 1;
-                    police.iSawThief(thiefRow, thiefColumn, p, n);
-                    break;
-                }
-                if (gameTable[row][column + 2] == 1) {
-                    thiefRow = row;
-                    thiefColumn = column + 2;
-                    police.iSawThief(thiefRow, thiefColumn, p, n);
-                    break;
-                }
-                if (gameTable[row][column - 1] == 1) {
-                    thiefRow = row;
-                    thiefColumn = column - 1;
-                    police.iSawThief(thiefRow, thiefColumn, p, n);
-                    break;
-                }
-                if (gameTable[row][column - 2] == 1) {
-                    thiefRow = row;
-                    thiefColumn = column - 2;
-                    police.iSawThief(thiefRow, thiefColumn, p, n);
-                    break;
-                }
-                if (gameTable[row - 1][column] == 1) {
-                    thiefRow = row - 1;
-                    thiefColumn = column;
-                    police.iSawThief(thiefRow, thiefColumn, p, n);
-                    break;
-                }
-                if (gameTable[row - 2][column] == 1) {
-                    thiefRow = row - 2;
-                    thiefColumn = column;
-                    police.iSawThief(thiefRow, thiefColumn, p, n);
-                    break;
-                }
-                if (gameTable[row + 1][column] == 1) {
-                    thiefRow = row + 1;
-                    thiefColumn = column;
-                    police.iSawThief(thiefRow, thiefColumn, p, n);
-                    break;
-                }
-                if (gameTable[row + 2][column] == 1) {
-                    thiefRow = row + 2;
-                    thiefColumn = column;
-                    police.iSawThief(thiefRow, thiefColumn, p, n);
-                    break;
-                }
-                if (gameTable[row - 1][column - 1] == 1) {
-                    thiefRow = row - 1;
-                    thiefColumn = column - 1;
-                    police.iSawThief(thiefRow, thiefColumn, p, n);
-                    break;
-                }
-                if (gameTable[row - 2][column - 2] == 1) {
-                    thiefRow = row - 2;
-                    thiefColumn = column - 2;
-                    police.iSawThief(thiefRow, thiefColumn, p, n);
-                    break;
-                }
-                if (gameTable[row - 1][column + 1] == 1) {
-                    thiefRow = row - 1;
-                    thiefColumn = column + 1;
-                    police.iSawThief(thiefRow, thiefColumn, p, n);
-                    break;
-                }
-                if (gameTable[row - 2][column + 2] == 1) {
-                    thiefRow = row - 2;
-                    thiefColumn = column + 2;
-                    police.iSawThief(thiefRow, thiefColumn, p, n);
-                    break;
-                }
-                if (gameTable[row + 2][column - 2] == 1) {
-                    thiefRow = row + 2;
-                    thiefColumn = column - 2;
-                    police.iSawThief(thiefRow, thiefColumn, p, n);
-                    break;
-                }
-                if (gameTable[row + 1][column - 1] == 1) {
-                    thiefRow = row - 2;
-                    thiefColumn = column + 2;
-                    police.iSawThief(thiefRow, thiefColumn, p, n);
-                    break;
-                }
-                if (gameTable[row + 1][column + 1] == 1) {
-                    thiefRow = row + 1;
-                    thiefColumn = column + 1;
-                    police.iSawThief(thiefRow, thiefColumn, p, n);
-                    break;
-                }
-                if (gameTable[row + 2][column + 2] == 1) {
-                    thiefRow = row + 2;
-                    thiefColumn = column + 2;
-                    police.iSawThief(thiefRow, thiefColumn, p, n);
-                    break;
-                }
-
-
-            }
-
-
         }
 
     }
