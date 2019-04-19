@@ -2,22 +2,32 @@ import java.util.Random;
 public class Thief
 {
     Random rand=new Random();
-   private int row,column;
-   private int totalRow,totalColumn;
-   public int getRow()
+    private int moves;
+    private int row,column;
+    private int totalRow,totalColumn;
+    public int getRow()
    {
        return row;
    }
-   public int getColumn()
+    public int getColumn()
    {
        return column;
    }
-   public Thief(int r,int c,int m,int n)
+    public Thief(int r,int c,int m,int n)
    {
        row=r;
        column=c;
        totalRow=m;
        totalColumn=n;
+       moves=0;
+   }
+   public void addMove()
+   {
+       ++moves;
+   }
+   public int getMoves()
+   {
+       return moves;
    }
    public void makeDecision()
    {
@@ -41,6 +51,7 @@ public class Thief
            {
                row+=1;
            }
+           addMove();
        }
 
        if(column==0&&row!=0&&row!=totalRow-1)
@@ -70,7 +81,7 @@ public class Thief
            {
                row+=1;
            }
-
+           addMove();
        }
        if(column==0&&row==totalRow-1)
        {
@@ -90,7 +101,7 @@ public class Thief
            {
                column+=1;
            }
-
+           addMove();
        }
        if(row==0&&column!=0&&column!=totalColumn-1)
        {
@@ -119,7 +130,7 @@ public class Thief
            {
                column-=1;
            }
-
+           addMove();
 
 
        }
@@ -141,7 +152,7 @@ public class Thief
            {
                column-=1;
            }
-
+           addMove();
        }
        if(column==totalColumn-1&&row!=0&&row!=totalRow-1)
        {
@@ -170,7 +181,7 @@ public class Thief
            {
                row-=1;
            }
-
+           addMove();
        }
        if(row==totalRow-1&&column==totalColumn-1)
        {
@@ -190,7 +201,7 @@ public class Thief
            {
                row-=1;
            }
-
+           addMove();
        }
        if(row==totalRow-1&&column!=0&&column!=totalColumn-1)
        {
@@ -219,7 +230,7 @@ public class Thief
                row-=1;
                column+=1;
            }
-
+           addMove();
        }
        if(result==0)
        {
@@ -261,17 +272,8 @@ public class Thief
                row-=1;
                column += 1;
            }
-
+           addMove();
        }
-
-
-
-
-
-
-
-
-
 
    }
 

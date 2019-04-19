@@ -32,11 +32,11 @@ public class Game
         //myField.pause();
         //myField.pause();
         //myField.clean();
-
-        for(int i=1;i<=10;++i)
+        int gameTable[][];
+        gameTable=myField.fieldMaker(myTheif,myPolices,numberOfPolices);
+        for(int i=1;myField.gameConditionChecker(gameTable,m,n);++i)
         {
-            int gameTable[][];
-            gameTable=myField.fieldMaker(myTheif,myPolices,numberOfPolices);
+
             myField.fieldPrinter(gameTable);
             myTheif.makeDecision();
            // myField.fieldPrinter(myField.fieldMaker(myTheif,myPolices,numberOfPolices));

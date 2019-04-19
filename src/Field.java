@@ -44,12 +44,21 @@ public class Field
         return gameTable;
 
     }
-    /*public int gameConditionChecker(int gameTable[][])
+    public boolean gameConditionChecker(int gameTable[][],int row,int column)
     {
+        for(int i=0;i<row;++i)
+        {
+            for(int j=0;j<column;++j)
+            {
+             if(gameTable[i][j]==12)
+             {
+                 return false;
+             }
+            }
+        }
+        return true;
 
-
-
-    }*/
+    }
     public void fieldPrinter(int gameTable[][])
     {
         for(int j=1;j<=2*column;++j)
